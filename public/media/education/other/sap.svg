@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect x="8" y="12" width="48" height="40" rx="8" fill="#1f2937" stroke="#fb923c" stroke-width="2"/>
+  <path d="M18 24h28v16H18z" fill="#0ea5e9" opacity="0.2"/>
+  <text x="32" y="36" text-anchor="middle" font-size="14" fill="#38bdf8" font-family="Arial, sans-serif" font-weight="700">SAP</text>
+</svg>

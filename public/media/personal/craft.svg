@@ -1,0 +1,25 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="craftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffb84d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8c42;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Hammer head -->
+  <rect x="20" y="14" width="16" height="12" fill="url(#craftGrad)" rx="2"/>
+  <rect x="24" y="12" width="8" height="4" fill="url(#craftGrad)" rx="1"/>
+  
+  <!-- Hammer handle -->
+  <rect x="30" y="26" width="4" height="24" fill="url(#craftGrad)" rx="2"/>
+  
+  <!-- Nail head (top) -->
+  <circle cx="32" cy="18" r="2.5" fill="url(#craftGrad)"/>
+  
+  <!-- Surface/block being crafted -->
+  <rect x="18" y="44" width="28" height="12" fill="url(#craftGrad)" opacity="0.6" rx="2"/>
+  
+  <!-- Detail marks -->
+  <line x1="22" y1="50" x2="42" y2="50" stroke="#fff" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+  <line x1="22" y1="53" x2="42" y2="53" stroke="#fff" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+</svg>

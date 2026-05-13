@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0e0a 0%, #3e1f16 25%, #2a1a0d 50%, #3e1a0a 75%, #1a0e0a 100%);
+  background-attachment: fixed;
+  color: #e0e7ff;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 140, 66, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(255, 184, 77, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+
+@layer components {
+  .app-shell {
+    @apply relative min-h-screen overflow-hidden;
+  }
+
+  .panel {
+    @apply rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-xl;
+  }
+
+  .panel-soft {
+    @apply rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur-md;
+  }
+
+  .glass-accent {
+    @apply rounded-2xl border border-orange-400/30 bg-gradient-to-br from-orange-500/10 to-amber-500/10 backdrop-blur-lg;
+  }
+
+  .grid-noise {
+    background-image:
+      linear-gradient(rgba(255, 140, 66, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 140, 66, 0.12) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .media-frame {
+    @apply relative overflow-hidden rounded-2xl border border-orange-500/30 bg-gradient-to-br from-orange-500/5 to-amber-500/5 backdrop-blur-sm shadow-lg;
+  }
+
+  .visual-slot {
+    @apply inline-flex items-center justify-center rounded-xl border border-dashed border-white/30 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.15em] text-white/70;
+  }
+
+  .cta-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-orange-500 to-red-600 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/50 hover:scale-105 active:scale-95;
+  }
+
+  .cta-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-orange-400/50 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-orange-300/80 hover:bg-white/10 hover:shadow-lg hover:shadow-orange-500/20;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 140, 66, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 140, 66, 0.8), 0 0 30px rgba(255, 107, 53, 0.6);
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 500ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.glow-text {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.float-in {
+  animation: floatIn 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes routeSwap {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.route-swap {
+  animation: routeSwap 350ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.route-swap > * {
+  animation: fadeUp 450ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@layer utilities {
+  .stagger-1 { animation-delay: 80ms; }
+  .stagger-2 { animation-delay: 160ms; }
+  .stagger-3 { animation-delay: 240ms; }
+  .stagger-4 { animation-delay: 320ms; }
+  .stagger-5 { animation-delay: 400ms; }
+  .stagger-6 { animation-delay: 480ms; }
+
+  .glass-border {
+    @apply border border-white/20;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-delay: 0 !important;
+  }
+}
+

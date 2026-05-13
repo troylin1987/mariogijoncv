@@ -1,0 +1,22 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="consultGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb84d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Briefcase -->
+  <rect x="16" y="20" width="32" height="24" fill="url(#consultGrad)" rx="2"/>
+  <rect x="16" y="20" width="32" height="6" fill="url(#consultGrad)" opacity="0.8" rx="2"/>
+  
+  <!-- Handle -->
+  <path d="M 24 20 Q 24 12 32 12 Q 40 12 40 20" fill="none" stroke="url(#consultGrad)" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Divider -->
+  <line x1="32" y1="20" x2="32" y2="44" stroke="#fff" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Details -->
+  <rect x="19" y="32" width="10" height="8" fill="#fff" opacity="0.3" rx="1"/>
+  <rect x="35" y="32" width="10" height="8" fill="#fff" opacity="0.3" rx="1"/>
+</svg>

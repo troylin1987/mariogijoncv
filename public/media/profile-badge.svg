@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="profileGrad">
+      <stop offset="0%" style="stop-color:#ff8c42;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#profileGrad)" stroke-width="3"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="url(#profileGrad)" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Inner circles (badge design) -->
+  <circle cx="100" cy="100" r="75" fill="url(#profileGrad)" opacity="0.1"/>
+  
+  <!-- Geometric shapes (abstract) -->
+  <polygon points="100,35 135,65 120,110 80,110 65,65" fill="url(#profileGrad)" opacity="0.6"/>
+  
+  <!-- Center marker -->
+  <circle cx="100" cy="100" r="8" fill="url(#profileGrad)"/>
+  
+  <!-- Accent elements -->
+  <path d="M 100 35 Q 120 50 120 75" fill="none" stroke="url(#profileGrad)" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 100 165 Q 120 150 135 135" fill="none" stroke="url(#profileGrad)" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Text area -->
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="url(#profileGrad)" text-anchor="middle">MG</text>
+</svg>
