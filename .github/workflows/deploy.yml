@@ -27,6 +27,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - uses: actions/configure-pages@v5
+      - name: Log deployment trigger time
+        run: echo "Deploy trigger at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
       - run: npm ci
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
