@@ -28,7 +28,7 @@ npm run build
 npm run preview
 ```
 
-5. Generar el build para despliegue en GitHub Pages:
+5. Generar build para despliegue:
 
 ```bash
 npm run deploy
@@ -36,7 +36,14 @@ npm run deploy
 
 ## Despliegue
 
-Este proyecto incluye una acción de GitHub Actions que publica el contenido de `dist/` en la rama `gh-pages` cuando se hace push a `main`.
+Este proyecto despliega en InfinityFree por FTP con GitHub Actions.
+
+- Workflow: `.github/workflows/deploy.yml`
+- Trigger: `push` a `main`
+- Flujo: `npm ci` -> `npm run build` -> subida de `dist/` a `htdocs/`
+- Secretos requeridos en GitHub: `FTPUSERNAME` y `FTPKEY`
+
+Nota: `public/.htaccess` se copia a `dist/.htaccess` durante el build para forzar HTTPS y soportar fallback de SPA.
 
 ## Versionado de build
 
@@ -51,47 +58,41 @@ Este proyecto incluye una acción de GitHub Actions que publica el contenido de 
 - La web muestra un banner de consentimiento de cookies/analítica; si se rechaza, Analytics queda desactivado.
 - Puedes partir de `.env.example` para configurar variables en local.
 
-## Publicación en GitHub Pages
+## Publicación en InfinityFree
 
-- El dominio personalizado se mantiene en `public/CNAME` (`www.mariogijon.es`).
 - Para activar analítica en producción, define `VITE_GA_MEASUREMENT_ID` en el repositorio (Settings > Secrets and variables > Actions > Variables).
-- Al mover el dominio desde Google Sites a GitHub Pages, asegúrate de actualizar los DNS en tu proveedor de dominio.
+- El SSL de dominio se gestiona en InfinityFree (Let's Encrypt) y su instalación se realiza desde su panel.
 
-### Checklist recomendado para publicar en tu repo público
+### Checklist recomendado de publicación
 
 Repositorio: `https://github.com/troylin1987/mariogijoncv/`
 
-1. En GitHub, entra en Settings > Pages.
-2. En Build and deployment, selecciona Source: `Deploy from a branch`.
-3. Branch: `gh-pages` y carpeta `/ (root)`.
-4. En Settings > Actions > General, deja habilitado `Read and write permissions` para `GITHUB_TOKEN`.
-5. En Settings > Secrets and variables > Actions > Variables, crea:
+1. En Settings > Actions > General, deja habilitado `Read and write permissions` para `GITHUB_TOKEN`.
+2. En Settings > Secrets and variables > Actions > Secrets, crea:
+	 - `FTPUSERNAME`
+	 - `FTPKEY`
+3. En Settings > Secrets and variables > Actions > Variables, crea:
 	 - `VITE_GA_MEASUREMENT_ID = G-EX2Y83PKE2`
-6. Haz push a `main` para disparar el workflow `Deploy to GitHub Pages`.
-7. Verifica en Actions que termina en verde y que publica en `gh-pages`.
+4. Haz push a `main` para disparar el workflow `Deploy to InfinityFree`.
+5. Verifica en Actions que termina en verde.
 
 ### DNS recomendado para dominio personalizado
 
-El proyecto usa `www.mariogijon.es` en `public/CNAME`, asi que lo ideal es:
+Configuracion recomendada para `mariogijon.es` y `www.mariogijon.es` en InfinityFree:
 
-- Registro `CNAME`
+- Registro `A` para `@`
+	- Host/Name: `@`
+	- Target/Value: `185.27.134.149`
+	- TTL: automatico o 3600
+
+- Registro `A` para `www`
 	- Host/Name: `www`
-	- Target/Value: `troylin1987.github.io`
-	- TTL: automático o 3600
+	- Target/Value: `185.27.134.149`
+	- TTL: automatico o 3600
 
-- Registro `A` para el dominio raíz `@` (opcional, pero recomendado para redirección)
-	- `185.199.108.153`
-	- `185.199.109.153`
-	- `185.199.110.153`
-	- `185.199.111.153`
+- Evita dejar registros `CNAME` de `www` hacia `github.io`.
 
-- (Opcional) Registro `AAAA` para IPv6:
-	- `2606:50c0:8000::153`
-	- `2606:50c0:8001::153`
-	- `2606:50c0:8002::153`
-	- `2606:50c0:8003::153`
-
-Después, en Settings > Pages, añade `www.mariogijon.es` como Custom domain y activa `Enforce HTTPS`.
+Después, valida en InfinityFree que el certificado Let's Encrypt este `Active` para el dominio.
 
 ### Verificaciones SEO/robots rápidas tras publicar
 
@@ -108,4 +109,4 @@ Después, en Settings > Pages, añade `www.mariogijon.es` como Custom domain y a
 - `src/pages/*` - páginas principales del portal.
 - `src/pages/ProjectDetailPage.tsx` - fichas de proyecto individuales.
 - `src/pages/SearchPage.tsx` - búsqueda global por proyectos.
-- `public/CNAME` - dominio de GitHub Pages.
+- `public/.htaccess` - forzado HTTPS y fallback SPA en Apache.
