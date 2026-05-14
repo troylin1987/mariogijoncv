@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { mediaPath } from '../lib/paths';
 
 type HomePageProps = {
   copy: any;
@@ -88,7 +89,7 @@ export default function HomePage({ copy }: HomePageProps) {
 
           <div className="media-frame min-h-[420px] overflow-hidden rounded-2xl border border-dashed border-white/30 bg-white/5 relative">
             <img
-              src="/media/personal/mario-photo.jpg"
+              src={mediaPath('/media/personal/mario-photo.jpg')}
               alt={copy.home.photoSlotAlt}
               className="h-full w-full object-cover"
               onError={() => setPhotoError(true)}

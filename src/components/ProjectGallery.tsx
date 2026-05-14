@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { Project } from '../data/projects';
+import { mediaPath } from '../lib/paths';
 
 type ProjectGalleryProps = {
   project: Pick<Project, 'id' | 'title' | 'kind' | 'image'>;
@@ -7,19 +8,19 @@ type ProjectGalleryProps = {
 };
 
 const PROJECT_SCREENSHOTS: Record<string, string[]> = {
-  aupromas: ['/media/screenshots/aupromas.png'],
-  'bank-of-cyprus': ['/media/screenshots/bankofcyprus.png'],
-  'f-c-barcelona-tickets': ['/media/screenshots/barcelona.png', '/media/screenshots/barcelona2.png', '/media/screenshots/barcelona3.png'],
-  bizkaiup: ['/media/screenshots/bizkaiup.png'],
-  'delivery-notes': ['/media/screenshots/deliverynotes.png'],
-  enemalta: ['/media/screenshots/enemalta.png'],
-  'evo-banco': ['/media/screenshots/evobank.png'],
-  'handling-services': ['/media/screenshots/handlingservices.png'],
-  insite: ['/media/screenshots/insite.png'],
-  'materials-inspect': ['/media/screenshots/materialsinspect.png'],
-  'passenger-plus': ['/media/screenshots/passengerplus.png'],
-  'plataforma-tierra': ['/media/screenshots/plataformatierra.png'],
-  sofia: ['/media/screenshots/sofia.png']
+  aupromas: [mediaPath('/media/screenshots/aupromas.png')],
+  'bank-of-cyprus': [mediaPath('/media/screenshots/bankofcyprus.png')],
+  'f-c-barcelona-tickets': [mediaPath('/media/screenshots/barcelona.png'), mediaPath('/media/screenshots/barcelona2.png'), mediaPath('/media/screenshots/barcelona3.png')],
+  bizkaiup: [mediaPath('/media/screenshots/bizkaiup.png')],
+  'delivery-notes': [mediaPath('/media/screenshots/deliverynotes.png')],
+  enemalta: [mediaPath('/media/screenshots/enemalta.png')],
+  'evo-banco': [mediaPath('/media/screenshots/evobank.png')],
+  'handling-services': [mediaPath('/media/screenshots/handlingservices.png')],
+  insite: [mediaPath('/media/screenshots/insite.png')],
+  'materials-inspect': [mediaPath('/media/screenshots/materialsinspect.png')],
+  'passenger-plus': [mediaPath('/media/screenshots/passengerplus.png')],
+  'plataforma-tierra': [mediaPath('/media/screenshots/plataformatierra.png')],
+  sofia: [mediaPath('/media/screenshots/sofia.png')]
 };
 
 export default function ProjectGallery({ project, className = '' }: ProjectGalleryProps) {
@@ -29,14 +30,14 @@ export default function ProjectGallery({ project, className = '' }: ProjectGalle
       return screenshotImages;
     }
 
-    return [project.image ?? `/media/projects/${project.id}.svg`];
+    return [project.image ?? mediaPath(`/media/projects/${project.id}.svg`)];
   }, [project.id, project.image]);
 
   const [active, setActive] = useState(0);
   const [failed, setFailed] = useState<Record<number, boolean>>({});
   const hasMultipleImages = images.length > 1;
 
-  const activeSrc = failed[active] ? `/media/kinds/${project.kind.toLowerCase()}.svg` : images[active];
+  const activeSrc = failed[active] ? mediaPath(`/media/kinds/${project.kind.toLowerCase()}.svg`) : images[active];
 
   return (
     <div className={`space-y-3 lg:h-full ${className}`.trim()}>
@@ -60,7 +61,7 @@ export default function ProjectGallery({ project, className = '' }: ProjectGalle
                 }`}
               >
                 <img
-                  src={failed[index] ? `/media/kinds/${project.kind.toLowerCase()}.svg` : src}
+                  src={failed[index] ? mediaPath(`/media/kinds/${project.kind.toLowerCase()}.svg`) : src}
                   alt={`${project.title} preview ${index + 1}`}
                   className="absolute inset-0 h-full w-full object-cover"
                   onError={() => setFailed((prev) => ({ ...prev, [index]: true }))}
@@ -83,7 +84,7 @@ export default function ProjectGallery({ project, className = '' }: ProjectGalle
               }`}
             >
               <img
-                src={failed[index] ? `/media/kinds/${project.kind.toLowerCase()}.svg` : src}
+                src={failed[index] ? mediaPath(`/media/kinds/${project.kind.toLowerCase()}.svg`) : src}
                 alt={`${project.title} preview ${index + 1}`}
                 className="absolute inset-0 h-full w-full object-cover"
                 onError={() => setFailed((prev) => ({ ...prev, [index]: true }))}

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { mediaPath } from '../lib/paths';
 
 type AboutPageProps = {
   copy: any;
@@ -52,9 +53,9 @@ function CompanyLogo({ logo, company }: CompanyLogoProps) {
   const sources = useMemo(
     () => {
       if (baseName === 'tecnicas-reunidas') {
-        return ['/media/companies/tecnicas-reunidas.png'];
+        return [mediaPath('/media/companies/tecnicas-reunidas.png')];
       }
-      return ['png', 'jpg', 'webp', 'svg'].map((ext) => `/media/companies/${baseName}.${ext}`);
+      return ['png', 'jpg', 'webp', 'svg'].map((ext) => mediaPath(`/media/companies/${baseName}.${ext}`));
     },
     [baseName]
   );
@@ -102,7 +103,7 @@ function slugify(value: string): string {
 }
 
 function getLanguageFlag(index: number): string {
-  const flags = ['/media/languages/es.svg', '/media/languages/en.svg'];
+  const flags = [mediaPath('/media/languages/es.svg'), mediaPath('/media/languages/en.svg')];
   return flags[index % flags.length];
 }
 
@@ -246,25 +247,25 @@ function formatPeriod(period: string, locale?: string): string {
 }
 
 function getFormalEducationIconBasePath(index: number, item: string): string {
-  if (index === 0) return '/media/education/formal/universidad-rey-juan-carlos';
-  if (index === 1) return '/media/education/formal/escuela-oficial-de-idiomas';
-  return `/media/education/formal/${slugify(item)}`;
+  if (index === 0) return mediaPath('/media/education/formal/universidad-rey-juan-carlos');
+  if (index === 1) return mediaPath('/media/education/formal/escuela-oficial-de-idiomas');
+  return mediaPath(`/media/education/formal/${slugify(item)}`);
 }
 
 function getOtherCourseIconBasePath(item: string): string {
   const normalized = slugify(item);
 
-  if (normalized.includes('sap')) return '/media/education/other/sap';
-  if (normalized.includes('android')) return '/media/education/other/android';
-  if (normalized.includes('linux')) return '/media/education/other/linux';
+  if (normalized.includes('sap')) return mediaPath('/media/education/other/sap');
+  if (normalized.includes('android')) return mediaPath('/media/education/other/android');
+  if (normalized.includes('linux')) return mediaPath('/media/education/other/linux');
   if (normalized.includes('trainer') || normalized.includes('certificate') || normalized.includes('certification')) {
-    return '/media/education/other/certificate';
+    return mediaPath('/media/education/other/certificate');
   }
   if (normalized.includes('api') || normalized.includes('development') || normalized.includes('automation')) {
-    return '/media/education/other/computing';
+    return mediaPath('/media/education/other/computing');
   }
 
-  return `/media/education/other/${normalized}`;
+  return mediaPath(`/media/education/other/${normalized}`);
 }
 
 const SKILL_ICON_FALLBACKS = ['architecture', 'mobile', 'cloud', 'genai', 'microservices', 'leadership'];
@@ -370,7 +371,7 @@ export default function AboutPage({ copy, locale = 'SPA' }: AboutPageProps) {
 
       <div className="panel p-7">
         <div className="flex items-center gap-3">
-          <img src="/media/education/formal.svg" alt="Formal education" className="h-10 w-10" />
+          <img src={mediaPath('/media/education/formal.svg')} alt="Formal education" className="h-10 w-10" />
           <h2 className="text-2xl font-semibold text-white">{copy.about.formalEducationTitle}</h2>
         </div>
         <ul className="mt-6 space-y-3 text-slate-300">
@@ -385,7 +386,7 @@ export default function AboutPage({ copy, locale = 'SPA' }: AboutPageProps) {
 
       <div className="panel p-7">
         <div className="flex items-center gap-3">
-          <img src="/media/education/other.svg" alt="Other education" className="h-10 w-10" />
+          <img src={mediaPath('/media/education/other.svg')} alt="Other education" className="h-10 w-10" />
           <h2 className="text-2xl font-semibold text-white">{copy.about.otherCoursesTitle}</h2>
         </div>
         <ul className="mt-6 space-y-3 text-slate-300">
@@ -400,13 +401,13 @@ export default function AboutPage({ copy, locale = 'SPA' }: AboutPageProps) {
 
       <div className="panel p-7">
         <div className="flex items-center gap-3">
-          <img src="/media/skills/key-competencies.svg" alt="Skills" className="h-10 w-10" />
+          <img src={mediaPath('/media/skills/key-competencies.svg')} alt="Skills" className="h-10 w-10" />
           <h2 className="text-2xl font-semibold text-white">{copy.about.skillsTitle}</h2>
         </div>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((skill: string, index: number) => (
             <div key={skill} className="flex items-center gap-3 rounded-2xl border border-slate-700 bg-slate-950/70 px-4 py-3 text-slate-200">
-              <img src={`/media/skills/${getSkillIconName(skill, index)}.svg`} alt={skill} className="h-8 w-8 flex-shrink-0" />
+              <img src={mediaPath(`/media/skills/${getSkillIconName(skill, index)}.svg`)} alt={skill} className="h-8 w-8 flex-shrink-0" />
               <span className="text-sm">{skill}</span>
             </div>
           ))}
@@ -415,7 +416,7 @@ export default function AboutPage({ copy, locale = 'SPA' }: AboutPageProps) {
 
       <div className="panel p-7">
         <div className="flex items-center gap-3">
-          <img src="/media/languages/languages.svg" alt="Languages" className="h-10 w-10" />
+          <img src={mediaPath('/media/languages/languages.svg')} alt="Languages" className="h-10 w-10" />
           <h2 className="text-2xl font-semibold text-white">{copy.about.languagesTitle}</h2>
         </div>
         <ul className="mt-6 space-y-3 text-slate-300">
@@ -430,13 +431,13 @@ export default function AboutPage({ copy, locale = 'SPA' }: AboutPageProps) {
 
       <div className="panel p-7">
         <div className="flex items-center gap-3">
-          <img src="/media/badges/badges.svg" alt="Badges" className="h-10 w-10" />
+          <img src={mediaPath('/media/badges/badges.svg')} alt="Badges" className="h-10 w-10" />
           <h2 className="text-2xl font-semibold text-white">{copy.about.badgesTitle}</h2>
         </div>
         <ul className="mt-6 space-y-3 text-slate-300">
           {badges.map((item: string) => (
             <li key={item} className="flex items-start gap-3 rounded-2xl border border-slate-700 bg-slate-950/70 px-4 py-3">
-              <MultiFormatIcon basePath={`/media/badges/${slugify(item)}`} alt={item} className="mt-0.5 h-10 w-10 flex-shrink-0 rounded-md bg-white p-1 object-contain" />
+              <MultiFormatIcon basePath={mediaPath(`/media/badges/${slugify(item)}`)} alt={item} className="mt-0.5 h-10 w-10 flex-shrink-0 rounded-md bg-white p-1 object-contain" />
               <span>{item}</span>
             </li>
           ))}
@@ -445,7 +446,7 @@ export default function AboutPage({ copy, locale = 'SPA' }: AboutPageProps) {
 
       <div className="panel p-7">
         <div className="flex items-center gap-3">
-          <img src="/media/timeline/timeline.svg" alt="Timeline" className="h-10 w-10" />
+          <img src={mediaPath('/media/timeline/timeline.svg')} alt="Timeline" className="h-10 w-10" />
           <h2 className="text-2xl font-semibold text-white">{copy.about.timelineTitle ?? 'Cronologia de experiencia profesional'}</h2>
         </div>
         <div className="mt-6 space-y-3 text-slate-300">
@@ -464,7 +465,7 @@ export default function AboutPage({ copy, locale = 'SPA' }: AboutPageProps) {
 
       <div className="panel p-7">
         <div className="flex items-center gap-3">
-          <img src="/media/personal/interests.svg" alt="Interests" className="h-10 w-10" />
+          <img src={mediaPath('/media/personal/interests.svg')} alt="Interests" className="h-10 w-10" />
           <h2 className="text-2xl font-semibold text-white">{copy.about.interestsTitle}</h2>
         </div>
         <div className="mt-6 flex flex-wrap gap-3">

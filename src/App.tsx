@@ -4,6 +4,7 @@ import copy from './content/copy.json';
 import { getLocalizedProjects } from './data/projects';
 import CookieBanner from './components/CookieBanner';
 import { applyCookieConsent, readCookieConsent, trackPageView } from './lib/analytics';
+import { mediaPath, withBase } from './lib/paths';
 
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -127,13 +128,13 @@ function AppContent() {
 
           <div className={`pointer-events-auto panel-soft flex items-center gap-3 px-3 py-2 ${menuOpen ? 'opacity-0 pointer-events-none' : ''}`}>
             <div className="text-right">
-              <a href="/" className="text-base font-semibold tracking-tight text-white">
+              <a href={withBase('/')} className="text-base font-semibold tracking-tight text-white">
                 {localeContent.siteTitle}
               </a>
               <p className="text-xs text-white/80">{localeContent.siteSubtitle}</p>
             </div>
             <img
-              src="/media/personal/mario-photo.jpg"
+              src={mediaPath('/media/personal/mario-photo.jpg')}
               alt="Mario Gijon"
               className="h-11 w-11 rounded-full border border-white/30 object-cover"
             />
@@ -245,7 +246,7 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={withBase('/')}>
       <AppContent />
     </BrowserRouter>
   );

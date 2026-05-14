@@ -3,6 +3,7 @@ type ContactPageProps = {
 };
 
 import { trackEvent } from '../lib/analytics';
+import { mediaPath } from '../lib/paths';
 
 export default function ContactPage({ copy }: ContactPageProps) {
   return (
@@ -42,7 +43,7 @@ export default function ContactPage({ copy }: ContactPageProps) {
 
           <div className="media-frame min-h-[260px] overflow-hidden rounded-2xl border border-orange-500/30 bg-white">
             <img
-              src="/media/personal/mario-photo4.jpg"
+              src={mediaPath('/media/personal/mario-photo4.jpg')}
               alt="Mario Gijon"
               className="h-full w-full object-cover object-[50%_38%]"
             />

@@ -1,6 +1,7 @@
 export type ProjectKind = 'Web' | 'App' | 'Tool' | 'Data' | 'Mobile' | 'Architecture';
 
 import projectTranslationsJson from './projectTranslations.generated.json';
+import { mediaPath } from '../lib/paths';
 
 type ProjectDetails = {
   description: string;
@@ -57,6 +58,14 @@ function mergeProjectDetails(defaultDetails: ProjectDetails, override?: Partial<
 
 type ProjectTranslationResult = ProjectTranslation & { details: ProjectDetails };
 
+function resolveProjectImage(image?: string): string | undefined {
+  if (!image) {
+    return image;
+  }
+
+  return image.startsWith('/media/') ? mediaPath(image) : image;
+}
+
 function getProjectTranslation(project: Project, locale: string): ProjectTranslationResult | undefined {
   const staticTranslation = projectTranslations[locale]?.[project.id];
   const inlineTranslation = project.translations?.[locale];
@@ -80,13 +89,17 @@ function getProjectTranslation(project: Project, locale: string): ProjectTransla
 export function localizeProject(project: Project, locale: string): Project {
   const translation = getProjectTranslation(project, locale);
   if (!translation) {
-    return project;
+    return {
+      ...project,
+      image: resolveProjectImage(project.image)
+    };
   }
 
   return {
     ...project,
     ...translation,
-    details: translation.details
+    details: translation.details,
+    image: resolveProjectImage(project.image)
   };
 }
 

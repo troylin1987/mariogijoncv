@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getProjectById } from '../data/projects';
 import ProjectGallery from '../components/ProjectGallery';
 import DomainBadge from '../components/DomainBadge';
+import { mediaPath } from '../lib/paths';
 
 type ProjectDetailPageProps = {
   copy: any;
@@ -9,24 +10,24 @@ type ProjectDetailPageProps = {
 };
 
 const PROFESSIONAL_COMPANY_LOGOS: Record<string, { src: string; alt: string }> = {
-  'el-corte-ingles-ai-solutions': { src: '/media/companies/el-corte-ingles.png', alt: 'El Corte Ingles' },
-  'banco-santander': { src: '/media/companies/banco-santander.png', alt: 'Banco Santander' },
-  bankinter: { src: '/media/companies/bankinter.png', alt: 'Bankinter' },
-  'f-c-barcelona-tickets': { src: '/media/companies/fc-barcelona.png', alt: 'Futbol Club Barcelona' },
-  disruptions: { src: '/media/companies/iberia.png', alt: 'Iberia' },
-  'llocs-de-treball': { src: '/media/companies/ctti.png', alt: 'CTTI' },
-  'passenger-plus': { src: '/media/companies/iberia.png', alt: 'Iberia' },
-  'materials-inspect': { src: '/media/companies/tecnicas-reunidas.png', alt: 'Tecnicas Reunidas' },
-  'bank-of-cyprus': { src: '/media/companies/bank-of-cyprus.webp', alt: 'Bank of Cyprus' },
-  bizkaiup: { src: '/media/companies/bizkaiup.png', alt: 'BizkaiUP' },
-  aupromas: { src: '/media/companies/navantia.png', alt: 'Navantia' },
-  'delivery-notes': { src: '/media/companies/ferrovial.png', alt: 'Ferrovial' },
-  sofia: { src: '/media/companies/tecnicas-reunidas.png', alt: 'Tecnicas Reunidas' },
-  enemalta: { src: '/media/companies/enemalta.png', alt: 'Enemalta' },
-  'evo-banco': { src: '/media/companies/evobank.png', alt: 'Evo Banco' },
-  'handling-services': { src: '/media/companies/ferrovial.png', alt: 'Ferrovial' },
-  'plataforma-tierra': { src: '/media/companies/plataforma-tierra.jpg', alt: 'Plataforma Tierra' },
-  insite: { src: '/media/companies/ferrovial.png', alt: 'Ferrovial' }
+  'el-corte-ingles-ai-solutions': { src: mediaPath('/media/companies/el-corte-ingles.png'), alt: 'El Corte Ingles' },
+  'banco-santander': { src: mediaPath('/media/companies/banco-santander.png'), alt: 'Banco Santander' },
+  bankinter: { src: mediaPath('/media/companies/bankinter.png'), alt: 'Bankinter' },
+  'f-c-barcelona-tickets': { src: mediaPath('/media/companies/fc-barcelona.png'), alt: 'Futbol Club Barcelona' },
+  disruptions: { src: mediaPath('/media/companies/iberia.png'), alt: 'Iberia' },
+  'llocs-de-treball': { src: mediaPath('/media/companies/ctti.png'), alt: 'CTTI' },
+  'passenger-plus': { src: mediaPath('/media/companies/iberia.png'), alt: 'Iberia' },
+  'materials-inspect': { src: mediaPath('/media/companies/tecnicas-reunidas.png'), alt: 'Tecnicas Reunidas' },
+  'bank-of-cyprus': { src: mediaPath('/media/companies/bank-of-cyprus.webp'), alt: 'Bank of Cyprus' },
+  bizkaiup: { src: mediaPath('/media/companies/bizkaiup.png'), alt: 'BizkaiUP' },
+  aupromas: { src: mediaPath('/media/companies/navantia.png'), alt: 'Navantia' },
+  'delivery-notes': { src: mediaPath('/media/companies/ferrovial.png'), alt: 'Ferrovial' },
+  sofia: { src: mediaPath('/media/companies/tecnicas-reunidas.png'), alt: 'Tecnicas Reunidas' },
+  enemalta: { src: mediaPath('/media/companies/enemalta.png'), alt: 'Enemalta' },
+  'evo-banco': { src: mediaPath('/media/companies/evobank.png'), alt: 'Evo Banco' },
+  'handling-services': { src: mediaPath('/media/companies/ferrovial.png'), alt: 'Ferrovial' },
+  'plataforma-tierra': { src: mediaPath('/media/companies/plataforma-tierra.jpg'), alt: 'Plataforma Tierra' },
+  insite: { src: mediaPath('/media/companies/ferrovial.png'), alt: 'Ferrovial' }
 };
 
 export default function ProjectDetailPage({ copy, locale }: ProjectDetailPageProps) {
@@ -89,7 +90,7 @@ export default function ProjectDetailPage({ copy, locale }: ProjectDetailPagePro
                     className="h-10 max-w-[150px] rounded-md bg-white px-3 py-1 object-contain"
                   />
                   <img
-                    src="/media/companies/ibm.png"
+                    src={mediaPath('/media/companies/ibm.png')}
                     alt="IBM"
                     className="h-10 max-w-[150px] rounded-md bg-white px-3 py-1 object-contain"
                   />
