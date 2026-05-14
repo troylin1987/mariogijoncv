@@ -1,21 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy to InfinityFree
 
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     env:
       APP_BASE_VERSION: v1.0.0
@@ -26,21 +17,16 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-      - uses: actions/configure-pages@v5
       - name: Log deployment trigger time
         run: echo "Deploy trigger at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload to InfinityFree FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          server: ftpupload.net
+          username: ${{ secrets.FTPUSERNAME }}
+          password: ${{ secrets.FTPKEY }}
+          local-dir: ./dist/
+          server-dir: ./htdocs/
+          state-name: .ftp-deploy-sync-state.json
