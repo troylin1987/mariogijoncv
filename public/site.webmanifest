@@ -1,0 +1,21 @@
+{
+  "name": "Mario Gijon",
+  "short_name": "Mario",
+  "description": "CV online y portfolio de Mario Gijon",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0e0a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
