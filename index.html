@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <script>
+      (function () {
+        var host = window.location.hostname;
+        var needsHttps = window.location.protocol !== 'https:';
+        var needsWww = host === 'mariogijon.es';
+
+        if (needsHttps || needsWww) {
+          var target = 'https://www.mariogijon.es' + window.location.pathname + window.location.search + window.location.hash;
+          window.location.replace(target);
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0f172a" />
