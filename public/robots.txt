@@ -1,3 +1,14 @@
 User-agent: *
 Allow: /
+
+# Explicit allowlist for social preview crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
 Sitemap: https://www.mariogijon.es/sitemap.xml
