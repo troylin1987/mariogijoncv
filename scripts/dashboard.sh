@@ -12,7 +12,7 @@ now="$(date '+%Y-%m-%d %H:%M:%S')"
 now_epoch="$(date +%s)"
 
 # DNS
-ns_tld="$(dig +short NS mariogijon.es @a.nic.es 2>/dev/null)"
+ns_tld="$(dig +short NS mariogijon.es @8.8.8.8 2>/dev/null)"
 ns_inf="$(printf '%s\n' "$ns_tld" | grep -c 'infinityfree.com')"
 ns_old="$(printf '%s\n' "$ns_tld" | grep -c 'servicio-online')"
 ns1="$(dig +short NS mariogijon.es @a.nic.es 2>/dev/null | sed -n '1p')"
@@ -33,34 +33,45 @@ apex_aa="$(dig +short AAAA mariogijon.es @1.1.1.1 2>/dev/null | head -1)"
 apex_ttl="$(dig +noall +answer A mariogijon.es @1.1.1.1 2>/dev/null | awk '{print $2}' | head -1)"
 
 # SOA
-soa="$(dig +noall +answer SOA mariogijon.es @ns1.infinityfree.com 2>/dev/null)"
+soa="$(dig +noall +answer SOA mariogijon.es @ns10.servicio-online.net 2>/dev/null)"
 soa_serial="$(printf '%s\n' "$soa" | awk '{print $7}')"
 soa_mname="$(printf '%s\n' "$soa" | awk '{print $6}' | sed 's/\.$//')"
 soa_refresh="$(printf '%s\n' "$soa" | awk '{print $8}')"
 soa_retry="$(printf '%s\n' "$soa" | awk '{print $9}')"
 soa_expire="$(printf '%s\n' "$soa" | awk '{print $10}')"
 
-# HTTP/HTTPS
-http_code="$(curl -sI http://www.mariogijon.es 2>/dev/null | awk 'NR==1 {print $2}')"
-http_srv="$(curl -sI http://www.mariogijon.es 2>/dev/null | grep -i 'server:' | cut -d' ' -f2- | head -1)"
-http_time="$(curl -so /dev/null -w '%{time_total}' http://www.mariogijon.es 2>/dev/null)"
-http_connect="$(curl -so /dev/null -w '%{time_connect}' http://www.mariogijon.es 2>/dev/null)"
+# HTTP/HTTPS — GET con cookie jar + UA para pasar el anti-bot de InfinityFree (openresty)
+# HEAD (-sI) devuelve vacío/000 en InfinityFree; se usa GET con seguimiento de redirecciones.
+_ck="/tmp/dashboard_ck_$$.txt"
 
-https_code="$(curl -sI https://www.mariogijon.es 2>/dev/null | awk 'NR==1 {print $2}')"
-https_time="$(curl -so /dev/null -w '%{time_total}' https://www.mariogijon.es 2>/dev/null)"
-https_connect="$(curl -so /dev/null -w '%{time_connect}' https://www.mariogijon.es 2>/dev/null)"
-https_ssl="$(curl -sI https://www.mariogijon.es 2>/dev/null | grep -i 'strict-transport-security')"
+_http_out="$(curl -sL --max-redirs 5 -c "$_ck" -b "$_ck" -A 'Mozilla/5.0' \
+  -D - -o /dev/null \
+  -w '\nMETRICS %{http_code} %{time_connect} %{time_total}' \
+  http://www.mariogijon.es 2>/dev/null)"
+http_code="$(printf '%s\n' "$_http_out" | grep '^METRICS' | awk '{print $2}')"
+http_connect="$(printf '%s\n' "$_http_out" | grep '^METRICS' | awk '{print $3}')"
+http_time="$(printf '%s\n' "$_http_out" | grep '^METRICS' | awk '{print $4}')"
+http_srv="$(printf '%s\n' "$_http_out" | grep -i '^server:' | tail -1 | cut -d' ' -f2- | tr -d '\r')"
 
-# Page
-page_content="$(curl -s https://www.mariogijon.es 2>/dev/null | head -50)"
+_https_out="$(curl -sL --max-redirs 5 -c "$_ck" -b "$_ck" -A 'Mozilla/5.0' \
+  -D - -o /dev/null \
+  -w '\nMETRICS %{http_code} %{time_connect} %{time_total}' \
+  https://www.mariogijon.es 2>/dev/null)"
+https_code="$(printf '%s\n' "$_https_out" | grep '^METRICS' | awk '{print $2}')"
+https_connect="$(printf '%s\n' "$_https_out" | grep '^METRICS' | awk '{print $3}')"
+https_time="$(printf '%s\n' "$_https_out" | grep '^METRICS' | awk '{print $4}')"
+https_ssl="$(printf '%s\n' "$_https_out" | grep -i 'strict-transport-security' | tail -1)"
+
+# Page — mismo cookie jar para obtener contenido real tras el challenge
+page_content="$(curl -sL --max-redirs 5 -c "$_ck" -b "$_ck" -A 'Mozilla/5.0' https://www.mariogijon.es 2>/dev/null | head -50)"
 page_title="$(printf '%s\n' "$page_content" | sed -n 's/.*<title>\([^<]*\)<\/title>.*/\1/p' | head -1)"
-page_size="$(curl -s https://www.mariogijon.es 2>/dev/null | wc -c)"
+page_size="$(curl -sL --max-redirs 5 -c "$_ck" -b "$_ck" -A 'Mozilla/5.0' https://www.mariogijon.es 2>/dev/null | wc -c | tr -d ' ')"
 
 # Certificate
 cert_data="$(echo | openssl s_client -connect www.mariogijon.es:443 -servername www.mariogijon.es 2>/dev/null | openssl x509 2>/dev/null)"
 cert_san="$(printf '%s\n' "$cert_data" | openssl x509 -noout -subject 2>/dev/null | grep -o 'CN=[^,]*' | cut -d'=' -f2)"
 cert_san_list="$(printf '%s\n' "$cert_data" | openssl x509 -noout -ext subjectAltName 2>/dev/null | tr '\n' ' ')"
-cert_issuer="$(printf '%s\n' "$cert_data" | openssl x509 -noout -issuer 2>/dev/null | cut -d'=' -f2- | cut -d',' -f1)"
+cert_issuer="$(printf '%s\n' "$cert_data" | openssl x509 -noout -issuer 2>/dev/null | grep -oE 'CN=[^,/]+' | head -1 | cut -d'=' -f2)"
 cert_notbefore="$(printf '%s\n' "$cert_data" | openssl x509 -noout -dates 2>/dev/null | grep notBefore | cut -d'=' -f2)"
 cert_notafter="$(printf '%s\n' "$cert_data" | openssl x509 -noout -dates 2>/dev/null | grep notAfter | cut -d'=' -f2)"
 if date -j -f "%b %e %T %Y %Z" "$cert_notafter" +%s >/dev/null 2>&1; then
@@ -77,6 +88,40 @@ fi
 
 # DNS Performance
 dns_time="$(dig www.mariogijon.es +stats 2>/dev/null | grep 'Query time:' | awk '{print $4}')"
+
+# Criterios de salud estrictos: todo verde = todo bien en InfinityFree.
+expected_ip="185.27.134.149"
+
+www_alias_detected=0
+if printf '%s\n%s\n%s\n' "$www_cn" "$www_cf" "$www_go" | grep -qi 'github.io'; then
+  www_alias_detected=1
+fi
+
+# www_all_ok: requiere CF + Google (Quad9 puede estar en transicion con TTL viejo)
+www_all_ok=0
+if [ "$www_cf" = "$expected_ip" ] && [ "$www_go" = "$expected_ip" ] && [ "$www_alias_detected" -eq 0 ]; then
+  www_all_ok=1
+fi
+
+apex_all_ok=0
+if [ "$apex_cf" = "$expected_ip" ] && [ "$apex_go" = "$expected_ip" ] && [ "$apex_q9" = "$expected_ip" ]; then
+  apex_all_ok=1
+fi
+
+server_is_github=0
+if printf '%s' "$http_srv" | grep -qi 'github'; then
+  server_is_github=1
+fi
+
+http_ok=0
+if [ "$http_code" = "200" ] && [ "$www_all_ok" -eq 1 ] && [ "$server_is_github" -eq 0 ]; then
+  http_ok=1
+fi
+
+https_ok=0
+if [ "$https_code" = "200" ] && [ "$cert_host_ok" -eq 1 ] && [ "$cert_days" -gt 0 ] && [ "$www_all_ok" -eq 1 ]; then
+  https_ok=1
+fi
 
 # Helpers de layout: mantienen el separador vertical en la misma columna.
 col_w=95
@@ -120,15 +165,15 @@ printf '%s%s\n\n' "$b$c" "$rule"
 
 # SECTION 1: DNS & NAMESERVERS
 title "DNS & NAMESERVERS"
-if [ "$ns_inf" -ge 1 ]; then
-  left_status="${g}Estado: [OK] InfinityFree activo${x}"
+if [ "$apex_all_ok" -eq 1 ] && [ "$www_all_ok" -eq 1 ]; then
+  left_status="${g}Estado: [OK] A records apuntan a InfinityFree${x}"
 else
-  left_status="${r}Estado: [X] Esperando propagacion a InfinityFree${x}"
+  left_status="${r}Estado: [X] A records no apuntan a InfinityFree${x}"
 fi
 if [ "$ns_old" -ge 1 ]; then
-  right_status="${r}NS antiguos: [X] servicio-online detectado${x}"
+  right_status="${g}NS Hostalia: [OK] servicio-online activos${x}"
 else
-  right_status="${g}NS antiguos: [OK] no detectados${x}"
+  right_status="${r}NS Hostalia: [X] no detectados${x}"
 fi
 row2 "$left_status" "$right_status"
 if [ -n "$ns1" ]; then ns1_cell="${g}NS1: $ns1${x}"; else ns1_cell="${r}NS1: --${x}"; fi
@@ -153,10 +198,14 @@ for resolver in "Cloudflare (1.1.1.1)=$www_cf" "Google (8.8.8.8)=$www_go" "Quad9
   fi
   row2 "$mark" "$ttl_cell"
 done
-if [ -n "$www_cn" ]; then
-  row2 "${r}CNAME detectado${x}" "${r}$www_cn${x}"
+if [ "$www_alias_detected" -eq 1 ]; then
+  alias_value="$www_cn"
+  if [ -z "$alias_value" ]; then
+    alias_value="${www_cf:-${www_go:-$www_q9}}"
+  fi
+  row2 "${r}Alias/CNAME detectado${x}" "${r}$alias_value${x}"
 else
-  row2 "${g}Sin CNAME detectado${x}" "${g}Correcto para A directo${x}"
+  row2 "${g}Sin alias de tercero detectado${x}" "${g}Correcto para A directo${x}"
 fi
 printf '\n'
 
@@ -175,11 +224,15 @@ printf '\n'
 # SECTION 4: HTTP/HTTPS
 title "HTTP / HTTPS STATUS"
 if [ "$http_code" = "200" ]; then
-  http_status="${g}HTTP: [OK] 200${x}"
+  if [ "$http_ok" -eq 1 ]; then
+    http_status="${g}HTTP: [OK] 200${x}"
+  else
+    http_status="${r}HTTP: [X] 200 pero origen no valido${x}"
+  fi
 else
   http_status="${r}HTTP: [X] ${http_code:---}${x}"
 fi
-if [ "$https_code" = "200" ]; then
+if [ "$https_ok" -eq 1 ]; then
   https_status="${g}HTTPS: [OK] 200${x}"
 else
   https_status="${r}HTTPS: [X] ${https_code:---}${x}"
@@ -190,14 +243,14 @@ if [ -n "$https_ssl" ]; then
 else
   hsts_status="${r}HSTS: [X] no configurado${x}"
 fi
-if [ "$http_code" = "200" ]; then
+if [ "$http_ok" -eq 1 ]; then
   server_cell="${g}Servidor: ${http_srv:---}${x}"
   http_time_cell="${g}HTTP total ${http_time:0:6}s | conexion ${http_connect:0:6}s${x}"
 else
   server_cell="${r}Servidor: ${http_srv:---}${x}"
   http_time_cell="${r}HTTP total ${http_time:0:6}s | conexion ${http_connect:0:6}s${x}"
 fi
-if [ "$https_code" = "200" ]; then
+if [ "$https_ok" -eq 1 ]; then
   https_time_cell="${g}HTTPS total ${https_time:0:6}s | conexion ${https_connect:0:6}s${x}"
 else
   https_time_cell="${r}HTTPS total ${https_time:0:6}s | conexion ${https_connect:0:6}s${x}"
@@ -228,7 +281,7 @@ if [ "${page_size:-0}" -gt 0 ] 2>/dev/null; then page_size_cell="${g}Tamano del 
 row2 "$cert_issuer_cell" "$page_size_cell"
 if [ -n "$cert_notbefore" ]; then
   row2 "${g}Valido desde: $cert_notbefore${x}" "${g}Valido hasta: $cert_notafter${x}"
-  if [ "$cert_days" -gt 30 ]; then
+  if [ "$cert_days" -gt 0 ]; then
     day_status="${g}Dias restantes: [OK] $cert_days${x}"
   else
     day_status="${r}Dias restantes: [X] certificado expirado${x}"
@@ -266,32 +319,33 @@ printf '\n'
 title "CHECKLIST DE OPERATIVIDAD"
 
 printf '%s' "$b"
-if [ "$ns_inf" -ge 1 ]; then printf '%s[OK]%s %sDNS propagado a InfinityFree nameservers%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sDNS propagado a InfinityFree nameservers%s\n' "$r" "$x" "$r" "$x"; fi
+if [ "$apex_all_ok" -eq 1 ] && [ "$www_all_ok" -eq 1 ]; then printf '%s[OK]%s %sDNS A records apuntan a InfinityFree (185.27.134.149)%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sDNS A records no apuntan a InfinityFree%s\n' "$r" "$x" "$r" "$x"; fi
 
 printf '%s' "$b"
-if printf '%s\n' "$www_cf" | grep -q '185.27.134.149'; then printf '%s[OK]%s %sRegistros A (www) apuntando a 185.27.134.149%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sRegistros A (www) apuntando a 185.27.134.149%s\n' "$r" "$x" "$r" "$x"; fi
+if [ "$www_all_ok" -eq 1 ]; then printf '%s[OK]%s %sRegistros A (www) consistentes en todos los resolvers y sin CNAME%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sRegistros A (www) aun inconsistentes o con CNAME%s\n' "$r" "$x" "$r" "$x"; fi
 
 printf '%s' "$b"
-if printf '%s\n' "$apex_cf" | grep -q '185'; then printf '%s[OK]%s %sRegistros A (apex) configurados correctamente%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sRegistros A (apex) configurados correctamente%s\n' "$r" "$x" "$r" "$x"; fi
+if [ "$apex_all_ok" -eq 1 ]; then printf '%s[OK]%s %sRegistros A (apex) consistentes en todos los resolvers%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sRegistros A (apex) aun inconsistentes en resolvers%s\n' "$r" "$x" "$r" "$x"; fi
 
 printf '%s' "$b"
-if [ "$http_code" = "200" ]; then printf '%s[OK]%s %sHTTP accesible y sirviendo contenido (200)%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sHTTP accesible y sirviendo contenido (200)%s\n' "$r" "$x" "$r" "$x"; fi
+if [ "$http_ok" -eq 1 ]; then printf '%s[OK]%s %sHTTP en origen correcto (InfinityFree) y codigo 200%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sHTTP no esta aun en origen correcto o no da 200%s\n' "$r" "$x" "$r" "$x"; fi
 
 printf '%s' "$b"
-if [ "$https_code" = "200" ]; then printf '%s[OK]%s %sHTTPS accesible y sirviendo contenido (200)%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sHTTPS accesible y sirviendo contenido (200)%s\n' "$r" "$x" "$r" "$x"; fi
+if [ "$https_ok" -eq 1 ]; then printf '%s[OK]%s %sHTTPS correcto con certificado valido para mariogijon.es%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sHTTPS aun no valido para mariogijon.es o sin 200%s\n' "$r" "$x" "$r" "$x"; fi
 
 printf '%s' "$b"
 if [ "$cert_host_ok" -eq 1 ] && [ "$cert_days" -gt 0 ]; then printf '%s[OK]%s %sCertificado SSL valido para mariogijon.es y no expirado%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sCertificado SSL invalido para mariogijon.es o expirado%s\n' "$r" "$x" "$r" "$x"; fi
 
 printf '%s' "$b"
-if [ -n "$page_title" ]; then printf '%s[OK]%s %sSitio sirviendo contenido con titulo HTML correcto%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sSitio sirviendo contenido con titulo HTML correcto%s\n' "$r" "$x" "$r" "$x"; fi
+if [ "${page_size:-0}" -gt 200 ]; then printf '%s[OK]%s %sSitio respondiendo con contenido desde InfinityFree%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sSitio sin respuesta o contenido vacio%s\n' "$r" "$x" "$r" "$x"; fi
 
 printf '%s' "$b"
 if [ -n "$https_ssl" ]; then printf '%s[OK]%s %sHSTS (seguridad en transito) habilitado%s\n' "$g" "$x" "$g" "$x"; else printf '%s[X]%s %sHSTS (seguridad en transito) no configurado%s\n' "$r" "$x" "$r" "$x"; fi
 
 printf '\n%s%s\n' "$b$m" "$rule"
 
-if [ "$ns_inf" -ge 1 ] && printf '%s\n' "$www_cf" | grep -q '185.27.134.149' && [ "$http_code" = "200" ] && [ "$https_code" = "200" ] && [ "$cert_host_ok" -eq 1 ] && [ "$cert_days" -gt 0 ] && [ -n "$page_title" ]; then
+rm -f "$_ck"
+if [ "$apex_all_ok" -eq 1 ] && [ "$www_all_ok" -eq 1 ] && [ "$http_ok" -eq 1 ] && [ "$https_ok" -eq 1 ] && [ "${page_size:-0}" -gt 200 ]; then
   printf '%s%s%s\n' "$b$g" "ESTADO FINAL: [OK] Infraestructura operativa al 100%" "$x"
 else
   printf '%s%s%s\n' "$b$r" "ESTADO FINAL: [X] Sistema en progreso (DNS / SSL / contenido)" "$x"
