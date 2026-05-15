@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Serve static assets directly (images, fonts, icons, etc.)
+# Allows social bots (LinkedIn, WhatsApp) to fetch og:image without SPA redirect.
+RewriteRule \.(jpg|jpeg|png|gif|webp|svg|ico|woff2?|ttf|eot|css|js|json|xml|txt|map)$ - [L]
+
 # SPA fallback for client-side routes (React Router/Vite).
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
