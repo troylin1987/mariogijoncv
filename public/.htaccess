@@ -1,5 +1,10 @@
 RewriteEngine On
 
+<IfModule mod_headers.c>
+	# Set HSTS for all responses. Browsers only enforce it on HTTPS.
+	Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
 # Serve static assets directly (images, fonts, icons, etc.)
 # Allows social bots (LinkedIn, WhatsApp) to fetch og:image without SPA redirect.
 RewriteRule \.(jpg|jpeg|png|gif|webp|svg|ico|woff2?|ttf|eot|css|js|json|xml|txt|map)$ - [L]
