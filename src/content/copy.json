@@ -42,7 +42,7 @@
         "search": "Búsqueda"
       },
       "home": {
-        "heroBadge": "Bienvenido a mi pagina web",
+        "heroBadge": "Bienvenido a mi página web",
         "heroTitle": "Ingeniero Superior en Informática",
         "heroSubtitle": "Soy Mario Gijón, actualmente trabajo como Arquitecto de Soluciones en IBM. Diseño soluciones empresariales escalables, seguras y orientadas a negocio desde Fuenlabrada, Madrid. Acompaño iniciativas desde la conceptualización hasta producción, con liderazgo y excelencia técnica, especializado en producto, arquitectura, APIs, Cloud e IA para convertir necesidades de negocio en soluciones robustas, integradas y mantenibles.",
         "heroPrimary": "Ver proyectos profesionales",
@@ -69,15 +69,15 @@
           },
           {
             "icon": "professional",
-            "title": "Area profesional",
+            "title": "Área profesional",
             "description": "Durante mi carrera profesional me he enfrentado a diferentes proyectos en muchos clientes, ámbitos y sectores.",
             "link": "/professional",
             "action": "Ver Portfolio de Proyectos"
           },
           {
             "icon": "personal",
-            "title": "Area personal",
-            "description": "Durante mi tiempo libre hago proyectos propios y experimentos, tecnicamente orientados a mi propio aprendizaje.",
+            "title": "Área personal",
+            "description": "Durante mi tiempo libre hago proyectos propios y experimentos, técnicamente orientados a mi propio aprendizaje.",
             "link": "/personal",
             "action": "Ver Proyectos Personales"
           },
@@ -170,7 +170,7 @@
         "timeline": [
           {
             "logo": "el-corte-ingles",
-            "company": "El Corte Ingles",
+            "company": "El Corte Inglés",
             "project": "AI Architecture",
             "period": "May 2025 - Present",
             "summary": "Arquitectura de casos de uso de IA end-to-end, agentes de IA e integración de servidores MCP en ecosistemas corporativos."
@@ -198,7 +198,7 @@
           },
           {
             "logo": "fc-barcelona",
-            "company": "Futbol Club Barcelona",
+            "company": "Fútbol Club Barcelona",
             "project": "Tickets Mobile App",
             "period": "Oct 2022 - Feb 2023",
             "summary": "Arquitectura de app Android/iOS para ciclo completo de entradas y acceso digital a eventos del club."
@@ -219,7 +219,7 @@
           },
           {
             "logo": "bizkaiup",
-            "company": "Diputacion Foral de Vizcaya",
+            "company": "Diputación Foral de Vizcaya",
             "project": "BizkaiUp",
             "period": "Mar 2020 - Sep 2020",
             "summary": "Aplicación móvil nativa para servicios ciudadanos durante Covid-19, basada en servicios IBM Cloud."
@@ -247,17 +247,17 @@
           },
           {
             "logo": "técnicas-reunidas",
-            "company": "Tecnicas Reunidas",
+            "company": "Técnicas Reunidas",
             "project": "Web .NET + iOS App",
             "period": "Jun 2016 - Oct 2017",
-            "summary": "Solucion web/móvil integrada con Documentum, SharePoint, IBM MobileFirst y Azure."
+            "summary": "Solución web/móvil integrada con Documentum, SharePoint, IBM MobileFirst y Azure."
           },
           {
             "logo": "enemalta",
             "company": "Malta Government Companies",
             "project": "Mobility Assessment",
             "period": "Jun 2017 - Aug 2017",
-            "summary": "Evaluacion de madurez de móvilidad y roadmap de arquitectura para Enemalta, WSC y Arms."
+            "summary": "Evaluación de madurez de movilidad y roadmap de arquitectura para Enemalta, WSC y Arms."
           },
           {
             "logo": "evobank",
@@ -285,14 +285,14 @@
             "company": "Bankinter",
             "project": "Mobile Architecture Design",
             "period": "Apr 2016 - Jun 2016",
-            "summary": "Arquitectura de móvilidad con foco en seguridad, CI/CD, push, MDM/MAM y automatizacion."
+            "summary": "Arquitectura de movilidad con foco en seguridad, CI/CD, push, MDM/MAM y automatización."
           },
           {
             "logo": "calidad-pascual",
             "company": "Calidad Pascual",
             "project": "SAP Fiori UI5 App",
             "period": "Jan 2016 - Apr 2016",
-            "summary": "Aplicación web y móvil SAP UI5 para gestion comercial en arquitectura SAP Fiori."
+            "summary": "Aplicación web y móvil SAP UI5 para gestión comercial en arquitectura SAP Fiori."
           },
           {
             "logo": "ferrovial",
@@ -306,14 +306,14 @@
             "company": "Ferrovial",
             "project": "Delivery Notes Mobile App",
             "period": "May 2015 - Oct 2015",
-            "summary": "App hibrida offline con SAP UI5/Kapsel y arquitectura SAP ECC + Gateway + SMP."
+            "summary": "App híbrida offline con SAP UI5/Kapsel y arquitectura SAP ECC + Gateway + SMP."
           },
           {
             "logo": "ferrovial",
             "company": "Ferrovial",
             "project": "InSite Phoenix IBM",
             "period": "Apr 2013 - May 2015",
-            "summary": "Desarrollo ERP a medida en modulos de compras, ventas, finanzas y operaciones."
+            "summary": "Desarrollo ERP a medida en módulos de compras, ventas, finanzas y operaciones."
           }
         ]
       },
@@ -486,7 +486,7 @@
       },
       "footer": {
         "copyright": "© {year} Mario Gijón. Todos los derechos reservados.",
-        "version": "Version {version}"
+        "version": "Versión {version}"
       },
       "languageSelectLabel": "Selección de idioma"
     },

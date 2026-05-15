@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import ProjectCard from '../components/ProjectCard';
 import type { Project } from '../data/projects';
 import { mediaPath } from '../lib/paths';
@@ -14,8 +15,60 @@ type CapabilityBlock = {
   text: string;
 };
 
+const MONTH_MAP: Record<string, number> = {
+  jan: 1,
+  ene: 1,
+  feb: 2,
+  mar: 3,
+  apr: 4,
+  abr: 4,
+  may: 5,
+  jun: 6,
+  jul: 7,
+  aug: 8,
+  ago: 8,
+  sep: 9,
+  sept: 9,
+  oct: 10,
+  nov: 11,
+  dec: 12,
+  dic: 12
+};
+
+function getDateSortValue(dateRange?: string): number {
+  if (!dateRange) {
+    return 0;
+  }
+
+  const normalized = dateRange.toLowerCase();
+  if (normalized.includes('presente') || normalized.includes('present') || normalized.includes('actualidad')) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  const dateParts = normalized.split(/[–-]/);
+  const endPart = (dateParts[dateParts.length - 1] ?? normalized).trim();
+  const match = endPart.match(/([a-záéíóúñ.]+)\s*(\d{4})/i);
+  if (match) {
+    const monthToken = match[1].replace('.', '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const year = Number(match[2]);
+    const month = MONTH_MAP[monthToken] ?? 1;
+    return year * 100 + month;
+  }
+
+  const yearMatch = normalized.match(/(19|20)\d{2}/g);
+  if (!yearMatch) {
+    return 0;
+  }
+
+  return Number(yearMatch[yearMatch.length - 1]) * 100;
+}
+
 export default function ProfessionalPage({ copy, professionalProjects, locale }: ProfessionalPageProps) {
   const capabilityBlocks = (copy.professional.capabilityBlocks ?? []) as CapabilityBlock[];
+  const sortedProfessionalProjects = useMemo(
+    () => [...professionalProjects].sort((a, b) => getDateSortValue(b.dateRange) - getDateSortValue(a.dateRange)),
+    [professionalProjects]
+  );
 
   return (
     <section className="space-y-6">
@@ -59,7 +112,7 @@ export default function ProfessionalPage({ copy, professionalProjects, locale }:
         </div>
         <p className="mt-3 text-slate-300">{copy.professional.projectsDescription}</p>
         <div className="mt-6 grid gap-6 xl:grid-cols-2">
-          {professionalProjects.map((project, index) => (
+          {sortedProfessionalProjects.map((project, index) => (
             <div key={project.id} className={`fade-up stagger-${(index % 6) + 1} h-full`}>
               <ProjectCard project={project} copy={copy} locale={locale} />
             </div>

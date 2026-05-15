@@ -10,19 +10,19 @@ type ProjectDetailPageProps = {
 };
 
 const PROFESSIONAL_COMPANY_LOGOS: Record<string, { src: string; alt: string }> = {
-  'el-corte-ingles-ai-solutions': { src: mediaPath('/media/companies/el-corte-ingles.png'), alt: 'El Corte Ingles' },
+  'el-corte-ingles-ai-solutions': { src: mediaPath('/media/companies/el-corte-ingles.png'), alt: 'El Corte Inglés' },
   'banco-santander': { src: mediaPath('/media/companies/banco-santander.png'), alt: 'Banco Santander' },
   bankinter: { src: mediaPath('/media/companies/bankinter.png'), alt: 'Bankinter' },
-  'f-c-barcelona-tickets': { src: mediaPath('/media/companies/fc-barcelona.png'), alt: 'Futbol Club Barcelona' },
+  'f-c-barcelona-tickets': { src: mediaPath('/media/companies/fc-barcelona.png'), alt: 'Fútbol Club Barcelona' },
   disruptions: { src: mediaPath('/media/companies/iberia.png'), alt: 'Iberia' },
   'llocs-de-treball': { src: mediaPath('/media/companies/ctti.png'), alt: 'CTTI' },
   'passenger-plus': { src: mediaPath('/media/companies/iberia.png'), alt: 'Iberia' },
-  'materials-inspect': { src: mediaPath('/media/companies/tecnicas-reunidas.png'), alt: 'Tecnicas Reunidas' },
+  'materials-inspect': { src: mediaPath('/media/companies/tecnicas-reunidas.png'), alt: 'Técnicas Reunidas' },
   'bank-of-cyprus': { src: mediaPath('/media/companies/bank-of-cyprus.webp'), alt: 'Bank of Cyprus' },
   bizkaiup: { src: mediaPath('/media/companies/bizkaiup.png'), alt: 'BizkaiUP' },
   aupromas: { src: mediaPath('/media/companies/navantia.png'), alt: 'Navantia' },
   'delivery-notes': { src: mediaPath('/media/companies/ferrovial.png'), alt: 'Ferrovial' },
-  sofia: { src: mediaPath('/media/companies/tecnicas-reunidas.png'), alt: 'Tecnicas Reunidas' },
+  sofia: { src: mediaPath('/media/companies/tecnicas-reunidas.png'), alt: 'Técnicas Reunidas' },
   enemalta: { src: mediaPath('/media/companies/enemalta.png'), alt: 'Enemalta' },
   'evo-banco': { src: mediaPath('/media/companies/evobank.png'), alt: 'Evo Banco' },
   'handling-services': { src: mediaPath('/media/companies/ferrovial.png'), alt: 'Ferrovial' },
