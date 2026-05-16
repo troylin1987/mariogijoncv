@@ -1813,10 +1813,13 @@ export const projects: Project[] = [
   }
 ];
 
-export const professionalProjects = projects.filter((project) => project.category === 'Profesional');
-export const personalProjects = projects.filter((project) => project.category === 'Personal');
+const EXCLUDED_PROJECT_IDS = new Set<string>(['reservas-padel']);
+const visibleProjects = projects.filter((project) => !EXCLUDED_PROJECT_IDS.has(project.id));
+
+export const professionalProjects = visibleProjects.filter((project) => project.category === 'Profesional');
+export const personalProjects = visibleProjects.filter((project) => project.category === 'Personal');
 export const getProjectById = (id: string, locale?: string) => {
-  const project = projects.find((project) => project.id === id);
+  const project = visibleProjects.find((project) => project.id === id);
   return locale && project ? localizeProject(project, locale) : project;
 };
-export const getLocalizedProjects = (locale: string) => projects.map((project) => localizeProject(project, locale));
+export const getLocalizedProjects = (locale: string) => visibleProjects.map((project) => localizeProject(project, locale));
