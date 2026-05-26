@@ -44,6 +44,41 @@ export type Project = {
 function mergeProjectDetails(defaultDetails: ProjectDetails, override?: Partial<ProjectDetails>): ProjectDetails {
   if (!override) {
     return defaultDetails;
+  }
+
+  return {
+    ...defaultDetails,
+    ...override,
+    features: override.features ?? defaultDetails.features,
+    tags: override.tags ?? defaultDetails.tags,
+  };
+}
+
+function localizeProject(project: Project, locale: string): Project {
+  const localeTranslations = projectTranslations[locale]?.[project.id];
+  const explicitTranslations = project.translations?.[locale];
+  const translation = localeTranslations ?? explicitTranslations;
+
+  if (!translation) {
+    return {
+      ...project,
+      image: project.image ? mediaPath(project.image) : undefined,
+    };
+  }
+
+  return {
+    ...project,
+    title: translation.title ?? project.title,
+    summary: translation.summary ?? project.summary,
+    role: translation.role ?? project.role,
+    context: translation.context ?? project.context,
+    image: project.image ? mediaPath(project.image) : undefined,
+    details: mergeProjectDetails(project.details, translation.details),
+  };
+}
+
+const projects: Project[] = [
+  {
     "id": "el-corte-ingles-ai-solutions",
     "title": "El Corte Inglés - AI Solutions",
     "category": "Profesional",
