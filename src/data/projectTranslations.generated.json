@@ -574,54 +574,6 @@
       "role": "Solutions Architect",
       "context": "Web application that helps find cheap gasoline in Spain."
     },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator is a web utility to create and structure sports betting predictions and share them with friends.",
-        "problem": "There was no simple tool to organize sports forecasts in a clear and accessible way.",
-        "solution": "We built a lightweight utility to manage forecasts and added Gemini AI support for combination suggestions and analysis.",
-        "results": "Ease of planning the pool and a direct design focused on key information.",
-        "features": [
-          "Forecast management",
-          "Share results",
-          "Tips with Gemini AI",
-          "Pool history"
-        ],
-        "tags": [
-          "sports",
-          "forecasts",
-          "utility",
-          "website"
-        ]
-      },
-      "title": "Quinielator",
-      "summary": "Tool to organize and share sports pool predictions.",
-      "role": "Solutions Architect",
-      "context": "Personal experiment to manage bets and sports results."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG is an informative site for Pokémon card collectors, with data on decks and key cards.",
-        "problem": "Players needed a quick resource to consult cards and build decks.",
-        "solution": "We redesigned the platform with React + Vite, backend in Supabase, deployment in Render and CI/CD with GitHub Actions.",
-        "results": "An accessible tool for TCG fans that combines information and agile navigation.",
-        "features": [
-          "Card catalog",
-          "Advanced search",
-          "Backend with Supabase",
-          "CI/CD with GitHub Actions"
-        ],
-        "tags": [
-          "gaming",
-          "react",
-          "supabase",
-          "website"
-        ]
-      },
-      "title": "PokemonTCG",
-      "summary": "Repository of cards and resources for Pokémon TCG collectors and fans.",
-      "role": "Solutions Architect",
-      "context": "Personal project for fans of Pokémon collectible cards."
-    },
     "la-fumadera": {
       "details": {
         "description": "La Fumadera is a blog oriented to the world of shisha, designed to bring together specialized content, recommendations and practical tools for fans and the curious.",
@@ -1294,54 +1246,6 @@
       "summary": "Cercador d'estacions de servei amb preus i càlcul de distàncies a temps real.",
       "role": "Arquitecte de Solucions",
       "context": "Aplicació web que ajuda a trobar benzina barata a Espanya."
-    },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator és una utilitat web per crear i estructurar pronòstics esportius de travessa i compartir-los amb amics.",
-        "problem": "No hi havia una eina simple per organitzar pronòstics esportius de manera clara i accessible.",
-        "solution": "Construïm una utilitat lleugera per gestionar pronòstics i afegim suport amb Gemini AI per a suggeriments i anàlisi de combinacions.",
-        "results": "Facilitat per planificar la travessa i un disseny directe enfocat a la informació clau.",
-        "features": [
-          "Gestió de pronòstics",
-          "Compartir resultats",
-          "Suggeriments amb Gemini AI",
-          "Històric de travesses"
-        ],
-        "tags": [
-          "esports",
-          "pronòstics",
-          "utilitat",
-          "web"
-        ]
-      },
-      "title": "Quinielator",
-      "summary": "Eina per organitzar i compartir pronòstics esportius de travessa.",
-      "role": "Arquitecte de Solucions",
-      "context": "Experiment personal per gestionar apostes i resultats esportius."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG és un lloc informatiu per a col·leccionistes de cartes Pokémon, amb dades sobre baralles i cartes clau.",
-        "problem": "Els jugadors necessitaven un recurs ràpid per consultar cartes i construir baralles.",
-        "solution": "Redissenyem la plataforma amb React + Vite, backend a Supabase, desplegament a Render i CI/CD amb GitHub Actions.",
-        "results": "Una eina accessible per a fans del TCG que combina informació i navegació àgil.",
-        "features": [
-          "Catàleg de cartes",
-          "Cerca avançada",
-          "Backend amb Supabase",
-          "CI/CD amb GitHub Actions"
-        ],
-        "tags": [
-          "gaming",
-          "react",
-          "suposés",
-          "web"
-        ]
-      },
-      "title": "PokémonTCG",
-      "summary": "Repositori de cartes i recursos per a col·leccionistes i fans de Pokémon TCG.",
-      "role": "Arquitecte de Solucions",
-      "context": "Projecte personal per a aficionats a les cartes col·leccionables de Pokémon."
     },
     "la-fumadera": {
       "details": {
@@ -2016,54 +1920,6 @@
       "role": "Arquitecto de Solucións",
       "context": "Aplicación web que axuda a atopar gasolina barata en España."
     },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator é unha utilidade web para crear e estruturar predicións de apostas deportivas e compartilas cos amigos.",
-        "problem": "Non existía unha ferramenta sinxela para organizar as previsións deportivas dun xeito claro e accesible.",
-        "solution": "Creamos unha utilidade lixeira para xestionar previsións e engadimos compatibilidade con Gemini AI para suxestións e análises de combinación.",
-        "results": "Facilidade para planificar a piscina e un deseño directo centrado na información clave.",
-        "features": [
-          "Xestión de previsións",
-          "Comparte resultados",
-          "Consellos con Gemini AI",
-          "Historial da piscina"
-        ],
-        "tags": [
-          "deportes",
-          "previsións",
-          "utilidade",
-          "sitio web"
-        ]
-      },
-      "title": "Quinielator",
-      "summary": "Ferramenta para organizar e compartir predicións de piscinas deportivas.",
-      "role": "Arquitecto de Solucións",
-      "context": "Experimento persoal para xestionar apostas e resultados deportivos."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG é un sitio informativo para coleccionistas de cartas Pokémon, con datos sobre barallas e tarxetas clave.",
-        "problem": "Os xogadores necesitaban un recurso rápido para consultar cartas e construír barallas.",
-        "solution": "Rediseñado a plataforma con React + Vite, backend en Supabase, implementación en Render e CI/CD con GitHub Actions.",
-        "results": "Unha ferramenta accesible para os afeccionados ao TCG que combina información e navegación áxil.",
-        "features": [
-          "Catálogo de tarxetas",
-          "Busca avanzada",
-          "Backend con Supabase",
-          "CI/CD con accións de GitHub"
-        ],
-        "tags": [
-          "xogos",
-          "reaccionar",
-          "supabase",
-          "sitio web"
-        ]
-      },
-      "title": "PokemonTCG",
-      "summary": "Repositorio de cartas e recursos para coleccionistas e fans de Pokémon TCG.",
-      "role": "Arquitecto de Solucións",
-      "context": "Proxecto persoal para os fans das cartas coleccionables Pokémon."
-    },
     "la-fumadera": {
       "details": {
         "description": "La Fumadera é un blog orientado ao mundo da shisha, pensado para reunir contidos especializados, recomendacións e ferramentas prácticas para afeccionados e curiosos.",
@@ -2736,54 +2592,6 @@
       "summary": "Zerbitzuguneen bilatzailea prezioak eta distantzia kalkuluarekin denbora errealean.",
       "role": "Soluzioen Arkitektoa",
       "context": "Espainian gasolina merkea aurkitzen laguntzen duen web aplikazioa."
-    },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator kirol-apustuen iragarpenak sortzeko eta egituratzeko eta lagunekin partekatzeko web-erabilgarritasuna da.",
-        "problem": "Ez zegoen tresna sinplerik kirol iragarpenak modu argi eta eskuragarrian antolatzeko.",
-        "solution": "Iragarpenak kudeatzeko utilitate arin bat eraiki dugu eta Gemini AI laguntza gehitu dugu konbinazio iradokizunetarako eta analisietarako.",
-        "results": "Igerilekua antolatzeko erraztasuna eta funtsezko informaziora bideratutako diseinu zuzena.",
-        "features": [
-          "Aurreikuspenen kudeaketa",
-          "Partekatu emaitzak",
-          "Gemini AI-rekin aholkuak",
-          "Igerilekuen historia"
-        ],
-        "tags": [
-          "kirolak",
-          "aurreikuspenak",
-          "erabilgarritasuna",
-          "webgunea"
-        ]
-      },
-      "title": "Quinielator",
-      "summary": "Kirol igerilekuen iragarpenak antolatzeko eta partekatzeko tresna.",
-      "role": "Soluzioen Arkitektoa",
-      "context": "Apustuak eta kirol emaitzak kudeatzeko esperimentu pertsonala."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG Pokemon txartel-biltzaileentzako informazio gune bat da, sorta eta gako-txartelen datuak dituena.",
-        "problem": "Jokalariek baliabide azkar bat behar zuten txartelak kontsultatu eta barajak eraikitzeko.",
-        "solution": "Plataforma birdiseinatu dugu React + Vite-rekin, backend-a Supabase-n, inplementazioa Render-en eta CI/CD GitHub Actions-ekin.",
-        "results": "Informazioa eta nabigazio arina uztartzen dituen TCG zaleentzako tresna eskuragarria.",
-        "features": [
-          "Txartelaren katalogoa",
-          "Bilaketa aurreratua",
-          "Backend Supabase-rekin",
-          "CI/CD GitHub ekintzekin"
-        ],
-        "tags": [
-          "jolasa",
-          "erreakzionatu",
-          "supabase",
-          "webgunea"
-        ]
-      },
-      "title": "PokemonTCG",
-      "summary": "Pokemon TCG bildumagile eta zaleentzako karta eta baliabideen biltegia.",
-      "role": "Soluzioen Arkitektoa",
-      "context": "Pokemon karta bildumazaleen zaleentzako proiektu pertsonala."
     },
     "la-fumadera": {
       "details": {
@@ -3458,54 +3266,6 @@
       "role": "Architecte de solutions",
       "context": "Application Web qui permet de trouver de l'essence bon marché en Espagne."
     },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator est un utilitaire Web permettant de créer et de structurer des pronostics de paris sportifs et de les partager avec des amis.",
-        "problem": "Il n’existait pas d’outil simple permettant d’organiser les pronostics sportifs de manière claire et accessible.",
-        "solution": "Nous avons créé un utilitaire léger pour gérer les prévisions et ajouté la prise en charge de Gemini AI pour les suggestions et analyses de combinaisons.",
-        "results": "Facilité de planification de la piscine et conception directe axée sur les informations clés.",
-        "features": [
-          "Gestion des prévisions",
-          "Partager les résultats",
-          "Conseils avec Gemini AI",
-          "Histoire de la piscine"
-        ],
-        "tags": [
-          "sport",
-          "prévisions",
-          "utilitaire",
-          "site internet"
-        ]
-      },
-      "title": "Quiniélateur",
-      "summary": "Outil pour organiser et partager des pronostics sur les pools sportifs.",
-      "role": "Architecte de solutions",
-      "context": "Expérience personnelle pour gérer les paris et les résultats sportifs."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG est un site informatif pour les collectionneurs de cartes Pokémon, avec des données sur les decks et les cartes-clés.",
-        "problem": "Les joueurs avaient besoin d’une ressource rapide pour consulter les cartes et construire des decks.",
-        "solution": "Nous avons repensé la plateforme avec React + Vite, backend en Supabase, déploiement en Render et CI/CD avec GitHub Actions.",
-        "results": "Un outil accessible aux fans du TCG qui allie information et navigation agile.",
-        "features": [
-          "Catalogue de cartes",
-          "Recherche avancée",
-          "Backend avec Supabase",
-          "CI/CD avec actions GitHub"
-        ],
-        "tags": [
-          "jeu",
-          "réagir",
-          "supabase",
-          "site internet"
-        ]
-      },
-      "title": "PokémonTCG",
-      "summary": "Référentiel de cartes et de ressources pour les collectionneurs et les fans du JCC Pokémon.",
-      "role": "Architecte de solutions",
-      "context": "Projet personnel pour les fans de cartes à collectionner Pokémon."
-    },
     "la-fumadera": {
       "details": {
         "description": "La Fumadera est un blog orienté vers le monde de la chicha, conçu pour rassembler des contenus spécialisés, des recommandations et des outils pratiques pour les fans et les curieux.",
@@ -4178,54 +3938,6 @@
       "summary": "Motore di ricerca stazioni di servizio con prezzi e calcolo della distanza in tempo reale.",
       "role": "Architetto di soluzioni",
       "context": "Applicazione web che aiuta a trovare benzina a buon mercato in Spagna."
-    },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator è un'utilità web per creare e strutturare pronostici sulle scommesse sportive e condividerli con gli amici.",
-        "problem": "Non esisteva uno strumento semplice per organizzare le previsioni sportive in modo chiaro e accessibile.",
-        "solution": "Abbiamo creato un'utilità leggera per gestire le previsioni e aggiunto il supporto Gemini AI per suggerimenti e analisi di combinazioni.",
-        "results": "Facilità di progettazione della piscina e una progettazione diretta focalizzata sulle informazioni chiave.",
-        "features": [
-          "Gestione delle previsioni",
-          "Condividi i risultati",
-          "Suggerimenti con Gemini AI",
-          "Storia della piscina"
-        ],
-        "tags": [
-          "sport",
-          "previsioni",
-          "utilità",
-          "sito web"
-        ]
-      },
-      "title": "Quinielator",
-      "summary": "Strumento per organizzare e condividere pronostici di pool sportivi.",
-      "role": "Architetto di soluzioni",
-      "context": "Esperimento personale per gestire scommesse e risultati sportivi."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG è un sito informativo per i collezionisti di carte Pokémon, con dati su mazzi e carte chiave.",
-        "problem": "I giocatori avevano bisogno di una risorsa rapida per consultare le carte e costruire mazzi.",
-        "solution": "Abbiamo ridisegnato la piattaforma con React + Vite, backend in Supabase, distribuzione in Render e CI/CD con GitHub Actions.",
-        "results": "Uno strumento accessibile per gli appassionati di TCG che unisce informazione e navigazione agile.",
-        "features": [
-          "Catalogo a schede",
-          "Ricerca avanzata",
-          "Backend con Supabase",
-          "CI/CD con azioni GitHub"
-        ],
-        "tags": [
-          "gioco",
-          "reagire",
-          "supabase",
-          "sito web"
-        ]
-      },
-      "title": "Pokémon GCC",
-      "summary": "Archivio di carte e risorse per collezionisti e fan del GCC Pokémon.",
-      "role": "Architetto di soluzioni",
-      "context": "Progetto personale per gli appassionati delle carte collezionabili Pokémon."
     },
     "la-fumadera": {
       "details": {
@@ -4900,54 +4612,6 @@
       "role": "Lösungsarchitekt",
       "context": "Webanwendung, die dabei hilft, günstiges Benzin in Spanien zu finden."
     },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator ist ein Web-Dienstprogramm zum Erstellen und Strukturieren von Sportwettenvorhersagen und zum Teilen dieser mit Freunden.",
-        "problem": "Es gab kein einfaches Tool, um Sportprognosen klar und zugänglich zu organisieren.",
-        "solution": "Wir haben ein leichtes Dienstprogramm zur Verwaltung von Prognosen entwickelt und Gemini AI-Unterstützung für Kombinationsvorschläge und Analysen hinzugefügt.",
-        "results": "Einfache Planung des Pools und ein direkter Entwurf, der sich auf die wichtigsten Informationen konzentriert.",
-        "features": [
-          "Prognosemanagement",
-          "Ergebnisse teilen",
-          "Tipps mit Gemini AI",
-          "Poolgeschichte"
-        ],
-        "tags": [
-          "Sport",
-          "Prognosen",
-          "Dienstprogramm",
-          "Website"
-        ]
-      },
-      "title": "Quinielator",
-      "summary": "Tool zum Organisieren und Teilen von Sportwetten-Vorhersagen.",
-      "role": "Lösungsarchitekt",
-      "context": "Persönliches Experiment zur Verwaltung von Wetten und Sportergebnissen."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG ist eine informative Website für Pokémon-Kartensammler mit Daten zu Decks und Schlüsselkarten.",
-        "problem": "Die Spieler brauchten eine schnelle Ressource, um Karten zu konsultieren und Decks zusammenzustellen.",
-        "solution": "Wir haben die Plattform mit React + Vite, Backend in Supabase, Bereitstellung in Render und CI/CD mit GitHub Actions neu gestaltet.",
-        "results": "Ein zugängliches Tool für TCG-Fans, das Informationen und agile Navigation kombiniert.",
-        "features": [
-          "Zettelkatalog",
-          "Erweiterte Suche",
-          "Backend mit Supabase",
-          "CI/CD mit GitHub-Aktionen"
-        ],
-        "tags": [
-          "Gaming",
-          "reagieren",
-          "Supabase",
-          "Website"
-        ]
-      },
-      "title": "PokemonTCG",
-      "summary": "Repository mit Karten und Ressourcen für Sammler und Fans des Pokémon-Sammelkartenspiels.",
-      "role": "Lösungsarchitekt",
-      "context": "Persönliches Projekt für Fans von Pokémon-Sammelkarten."
-    },
     "la-fumadera": {
       "details": {
         "description": "La Fumadera ist ein auf die Welt der Shisha ausgerichteter Blog, der spezialisierte Inhalte, Empfehlungen und praktische Tools für Fans und Neugierige zusammenbringt.",
@@ -5620,54 +5284,6 @@
       "summary": "服务站搜索引擎，实时计算价格和距离。",
       "role": "解决方案架构师",
       "context": "帮助在西班牙寻找廉价汽油的网络应用程序。"
-    },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator 是一个网络实用程序，用于创建和构建体育博彩预测并与朋友分享。",
-        "problem": "没有简单的工具可以以清晰易懂的方式组织体育预测。",
-        "solution": "我们构建了一个轻量级实用程序来管理预测，并添加了 Gemini AI 支持以进行组合建议和分析。",
-        "results": "易于规划池并直接设计专注于关键信息。",
-        "features": [
-          "预测管理",
-          "分享结果",
-          "Gemini AI 的技巧",
-          "泳池历史"
-        ],
-        "tags": [
-          "体育",
-          "预测",
-          "效用",
-          "网站"
-        ]
-      },
-      "title": "喹啉",
-      "summary": "组织和共享体育台球预测的工具。",
-      "role": "解决方案架构师",
-      "context": "管理投注和体育赛事结果的个人实验。"
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG 是一个为 Pokémon 卡牌收藏者提供信息的网站，提供卡组和钥匙卡的数据。",
-        "problem": "玩家需要快速的资源来查阅卡牌和构建牌组。",
-        "solution": "我们使用 React + Vite 重新设计了平台，Supabase 后端，使用 GitHub Actions 在 Render 和 CI/CD 中部署。",
-        "results": "一款集信息和敏捷导航于一体的 TCG 粉丝易于使用的工具。",
-        "features": [
-          "卡片目录",
-          "高级搜索",
-          "后端与 Supabase",
-          "带有 GitHub Actions 的 CI/CD"
-        ],
-        "tags": [
-          "游戏",
-          "反应",
-          "苏帕贝斯",
-          "网站"
-        ]
-      },
-      "title": "口袋妖怪集换式卡牌游戏",
-      "summary": "为 Pokémon TCG 收藏家和粉丝提供的卡牌和资源库。",
-      "role": "解决方案架构师",
-      "context": "神奇宝贝收藏卡粉丝的个人项目。"
     },
     "la-fumadera": {
       "details": {
@@ -6342,54 +5958,6 @@
       "role": "ソリューションアーキテクト",
       "context": "スペインで安いガソリンを見つけるのに役立つ Web アプリケーション。"
     },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator は、スポーツ賭博の予測を作成および構築し、友人と共有するための Web ユーティリティです。",
-        "problem": "スポーツの予想を明確かつアクセスしやすい方法で整理するための簡単なツールはありませんでした。",
-        "solution": "予測を管理するための軽量ユーティリティを構築し、組み合わせの提案と分析のための Gemini AI サポートを追加しました。",
-        "results": "プールの計画が容易で、重要な情報に焦点を当てた直接的な設計。",
-        "features": [
-          "予測管理",
-          "結果を共有する",
-          "Gemini AI に関するヒント",
-          "プールの歴史"
-        ],
-        "tags": [
-          "スポーツ",
-          "予測",
-          "ユーティリティ",
-          "ウェブサイト"
-        ]
-      },
-      "title": "クイニエレーター",
-      "summary": "スポーツプールの予想を整理して共有するツール。",
-      "role": "ソリューションアーキテクト",
-      "context": "賭けやスポーツの結果を管理するための個人的な実験。"
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokémonTCGはデッキやキーカードのデータを掲載するポケモンカードコレクターのための情報サイトです。",
-        "problem": "プレイヤーはカードを調べてデッキを構築するための素早いリソースを必要としていました。",
-        "solution": "React + Vite、Supabase のバックエンド、Render でのデプロイメント、GitHub Actions を使用した CI/CD を使用してプラットフォームを再設計しました。",
-        "results": "情報と機敏なナビゲーションを組み合わせた、TCG ファンのためのアクセスしやすいツールです。",
-        "features": [
-          "カードカタログ",
-          "詳細検索",
-          "Supabase によるバックエンド",
-          "GitHub アクションを使用した CI/CD"
-        ],
-        "tags": [
-          "ゲーム",
-          "反応する",
-          "超基地",
-          "ウェブサイト"
-        ]
-      },
-      "title": "ポケモンTCG",
-      "summary": "ポケモン TCG コレクターとファンのためのカードとリソースのリポジトリ。",
-      "role": "ソリューションアーキテクト",
-      "context": "ポケモン コレクションカードのファンのための個人プロジェクト。"
-    },
     "la-fumadera": {
       "details": {
         "description": "La Fumadera はシーシャの世界を指向したブログで、ファンや好奇心旺盛な人向けに専門的なコンテンツ、推奨事項、実用的なツールをまとめることを目的としています。",
@@ -7063,54 +6631,6 @@
       "role": "Архитектор решений",
       "context": "Веб-приложение, которое помогает найти дешевый бензин в Испании."
     },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator — это веб-утилита для создания и структурирования прогнозов по ставкам на спорт и обмена ими с друзьями.",
-        "problem": "Не было простого инструмента для четкой и доступной организации спортивных прогнозов.",
-        "solution": "Мы создали облегченную утилиту для управления прогнозами и добавили поддержку искусственного интеллекта Gemini для предложений комбинаций и анализа.",
-        "results": "Простота планирования бассейна и прямой дизайн, ориентированный на ключевую информацию.",
-        "features": [
-          "Управление прогнозами",
-          "Поделиться результатами",
-          "Советы с Gemini AI",
-          "История пула"
-        ],
-        "tags": [
-          "спорт",
-          "прогнозы",
-          "полезность",
-          "веб-сайт"
-        ]
-      },
-      "title": "Квиниэлатор",
-      "summary": "Инструмент для организации и обмена прогнозами спортивного пула.",
-      "role": "Архитектор решений",
-      "context": "Личный эксперимент по управлению ставками и спортивными результатами."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG — это информационный сайт для коллекционеров карт покемонов, на котором собраны данные о колодах и ключевых картах.",
-        "problem": "Игрокам нужен был быстрый ресурс для просмотра карт и составления колод.",
-        "solution": "Мы перепроектировали платформу с помощью React + Vite, серверную часть в Supabase, развертывание в Render и CI/CD с помощью GitHub Actions.",
-        "results": "Доступный инструмент для любителей TCG, сочетающий в себе информацию и гибкую навигацию.",
-        "features": [
-          "Карточный каталог",
-          "Расширенный поиск",
-          "Бэкэнд с Supabase",
-          "CI/CD с действиями GitHub"
-        ],
-        "tags": [
-          "игры",
-          "реагировать",
-          "супабаза",
-          "веб-сайт"
-        ]
-      },
-      "title": "ПокемонTCG",
-      "summary": "Репозиторий карточек и ресурсов для коллекционеров и любителей Pokémon TCG.",
-      "role": "Архитектор решений",
-      "context": "Персональный проект для любителей коллекционных карточек Покемонов."
-    },
     "la-fumadera": {
       "details": {
         "description": "La Fumadera — это блог, ориентированный на мир кальяна и призванный объединить специализированный контент, рекомендации и практические инструменты для любителей и любопытных.",
@@ -7783,54 +7303,6 @@
       "summary": "Wyszukiwarka stacji paliw z cenami i obliczaniem odległości w czasie rzeczywistym.",
       "role": "Architekt Rozwiązań",
       "context": "Aplikacja internetowa pomagająca znaleźć tanią benzynę w Hiszpanii."
-    },
-    "quinielator": {
-      "details": {
-        "description": "Quinielator to narzędzie internetowe umożliwiające tworzenie i porządkowanie prognoz zakładów sportowych oraz udostępnianie ich znajomym.",
-        "problem": "Nie było prostego narzędzia do uporządkowania prognoz sportowych w przejrzysty i przystępny sposób.",
-        "solution": "Stworzyliśmy lekkie narzędzie do zarządzania prognozami i dodaliśmy obsługę Gemini AI w celu sugestii i analiz kombinacji.",
-        "results": "Łatwość planowania basenu i bezpośredni projekt skupiony na kluczowych informacjach.",
-        "features": [
-          "Zarządzanie prognozami",
-          "Udostępnij wyniki",
-          "Wskazówki dotyczące Gemini AI",
-          "Historia basenu"
-        ],
-        "tags": [
-          "sport",
-          "prognozy",
-          "użyteczność",
-          "strona internetowa"
-        ]
-      },
-      "title": "Kwinilator",
-      "summary": "Narzędzie do organizowania i udostępniania prognoz dotyczących puli sportowych.",
-      "role": "Architekt Rozwiązań",
-      "context": "Osobisty eksperyment do zarządzania zakładami i wynikami sportowymi."
-    },
-    "pokemon-tcg": {
-      "details": {
-        "description": "PokemonTCG to strona informacyjna dla kolekcjonerów kart Pokémon, zawierająca dane na temat talii i kluczowych kart.",
-        "problem": "Gracze potrzebowali szybkiego zasobu, aby przeglądać karty i budować talie.",
-        "solution": "Przeprojektowaliśmy platformę za pomocą React + Vite, backend w Supabase, wdrożenie w Render i CI/CD z GitHub Actions.",
-        "results": "Przystępne narzędzie dla fanów TCG, które łączy w sobie informacje i sprawną nawigację.",
-        "features": [
-          "Katalog kartkowy",
-          "Wyszukiwanie zaawansowane",
-          "Backend z Supabase",
-          "CI/CD z akcjami GitHub"
-        ],
-        "tags": [
-          "gry",
-          "zareagować",
-          "supabaza",
-          "strona internetowa"
-        ]
-      },
-      "title": "PokemonTCG",
-      "summary": "Repozytorium kart i zasobów dla kolekcjonerów i fanów Pokémon TCG.",
-      "role": "Architekt Rozwiązań",
-      "context": "Osobisty projekt dla fanów kart kolekcjonerskich Pokémon."
     },
     "la-fumadera": {
       "details": {

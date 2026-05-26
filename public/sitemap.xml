@@ -106,16 +106,6 @@
     <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://www.mariogijon.es/project/quinielator</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.mariogijon.es/project/pokemon-tcg</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
     <loc>https://www.mariogijon.es/project/la-fumadera</loc>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
