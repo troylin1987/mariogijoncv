@@ -1691,67 +1691,6 @@ export const projects: Project[] = [
     }
   },
   {
-    "id": "reservas-padel",
-    "title": "Reservas Pádel",
-    "category": "Personal",
-    "kind": "Web",
-    "summary": "Plataforma de reservas para pistas de pádel y espacios comunitarios con calendario integrado.",
-    "role": "Arquitecto de Soluciones",
-    "image": "/media/projects/padel.jpg",
-    "technologies": [
-      "React",
-      "Carbon Design",
-      "Supabase",
-      "Render"
-    ],
-    "liveUrl": "https://troylin1987.github.io/reservasPadel/",
-    "route": "/project/reservas-padel",
-    "context": "Herramienta para la gestión de reservas deportivas en entornos de vecindario.",
-    "details": {
-      "description": "Reservas Pádel permite reservar pistas de pádel y locales comunitarios con confirmación por email y control de disponibilidad.",
-      "problem": "La gestión de reservas deportivas era manual y difícil de coordinar en comunidades de vecinos.",
-      "solution": "Desarrollamos una solución con React y Carbon Design, backend en Supabase y despliegue en Render para gestionar reservas en tiempo real.",
-      "results": "Flujo simple para reservar y gestionar horarios sin sobrecargar al administrador de la comunidad.",
-      "features": [
-        "Calendario integrado",
-        "Reserva de pistas",
-        "Backend Supabase",
-        "UI con Carbon Design"
-      ],
-      "tags": [
-        "atletismo",
-        "reservas",
-        "comunidad",
-        "web"
-      ]
-    },
-    "translations": {
-      "ENG": {
-        "summary": "Reservation platform for padel courts and community spaces with calendar integration.",
-        "role": "Solutions Architect",
-        "context": "Tool for managing sports reservations in neighborhood settings.",
-        "details": {
-          "description": "Reservas Pádel allows reserving padel courts and community venues with email confirmation and availability control.",
-          "problem": "Sports reservation management was manual and hard to coordinate in residential communities.",
-          "solution": "We designed an integrated calendar with booking rules, cancellations, and email notifications.",
-          "results": "A simple flow to book and manage schedules without overloading the community manager.",
-          "features": [
-            "Integrated calendar",
-            "Court booking",
-            "Email confirmation",
-            "Availability rules"
-          ],
-          "tags": [
-            "sports",
-            "reservations",
-            "community",
-            "web"
-          ]
-        }
-      }
-    }
-  },
-  {
     "id": "polen-madrid",
     "title": "Polen Madrid",
     "category": "Personal",
@@ -1813,7 +1752,7 @@ export const projects: Project[] = [
   }
 ];
 
-const EXCLUDED_PROJECT_IDS = new Set<string>(['reservas-padel']);
+const EXCLUDED_PROJECT_IDS = new Set<string>();
 const visibleProjects = projects.filter((project) => !EXCLUDED_PROJECT_IDS.has(project.id));
 
 export const professionalProjects = visibleProjects.filter((project) => project.category === 'Profesional');
