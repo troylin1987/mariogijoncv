@@ -13,7 +13,6 @@ Además, para la parte personal se incorporan estos proyectos:
 - `https://quinielator.gt.tc/`
 - `https://pokemontcg.gt.tc/`
 - `https://www.lafumadera.com/`
-- `https://www.blueshift.wuaze.com/`
 - `https://troylin1987.github.io/factum/`
 - `https://troylin1987.github.io/reservasPadel/`
 - `https://play.google.com/store/apps/details?id=com.mgs.polenmadrid`

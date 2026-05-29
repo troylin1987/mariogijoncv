@@ -1435,7 +1435,6 @@ const projects: Project[] = [
       "React",
       "Github Actions"
     ],
-    "liveUrl": "https://blueshift.wuaze.com/",
     "route": "/project/blueshift",
     "context": "Proyecto personal orientado a resolver una necesidad cotidiana: consultar cuadrantes de trabajo en PDF sin tener que buscar manualmente entre listados densos.",
     "details": {
