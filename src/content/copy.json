@@ -203,7 +203,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "APIs & integración enterprise", "domain": "api" },
           { "name": "Mobile (iOS & Android)", "domain": "mobile" },
-          { "name": "Microservicios & DDD", "domain": "platform" },
+          { "name": "Microservicios & DDD", "domain": "microservices" },
           { "name": "Liderazgo técnico", "domain": "leadership" },
           { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
           { "name": "Web frontend & backend", "domain": "web" }
@@ -415,7 +415,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "APIs & enterprise integration", "domain": "api" },
           { "name": "Mobile (iOS & Android)", "domain": "mobile" },
-          { "name": "Microservices & DDD", "domain": "platform" },
+          { "name": "Microservices & DDD", "domain": "microservices" },
           { "name": "Technical leadership", "domain": "leadership" },
           { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
           { "name": "Web frontend & backend", "domain": "web" }
@@ -532,7 +532,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "APIs & integració enterprise", "domain": "api" },
           { "name": "Mobile (iOS & Android)", "domain": "mobile" },
-          { "name": "Microserveis & DDD", "domain": "platform" },
+          { "name": "Microserveis & DDD", "domain": "microservices" },
           { "name": "Lideratge tècnic", "domain": "leadership" },
           { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
           { "name": "Web frontend & backend", "domain": "web" }
@@ -631,7 +631,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "APIs & intégration enterprise", "domain": "api" },
           { "name": "Mobile (iOS & Android)", "domain": "mobile" },
-          { "name": "Microservices & DDD", "domain": "platform" },
+          { "name": "Microservices & DDD", "domain": "microservices" },
           { "name": "Leadership technique", "domain": "leadership" },
           { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
           { "name": "Web frontend & backend", "domain": "web" }
@@ -730,7 +730,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "APIs & Enterprise-Integration", "domain": "api" },
           { "name": "Mobile (iOS & Android)", "domain": "mobile" },
-          { "name": "Microservices & DDD", "domain": "platform" },
+          { "name": "Microservices & DDD", "domain": "microservices" },
           { "name": "Technische Führung", "domain": "leadership" },
           { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
           { "name": "Web Frontend & Backend", "domain": "web" }
@@ -829,7 +829,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "APIs & integrazione enterprise", "domain": "api" },
           { "name": "Mobile (iOS & Android)", "domain": "mobile" },
-          { "name": "Microservizi & DDD", "domain": "platform" },
+          { "name": "Microservizi & DDD", "domain": "microservices" },
           { "name": "Leadership tecnica", "domain": "leadership" },
           { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
           { "name": "Web frontend & backend", "domain": "web" }
@@ -928,7 +928,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "API & 企业集成", "domain": "api" },
           { "name": "移动端 (iOS & Android)", "domain": "mobile" },
-          { "name": "微服务 & DDD", "domain": "platform" },
+          { "name": "微服务 & DDD", "domain": "microservices" },
           { "name": "技术领导力", "domain": "leadership" },
           { "name": "IBM Cloud、AWS、Azure", "domain": "cloud" },
           { "name": "Web前端 & 后端", "domain": "web" }
@@ -1027,7 +1027,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "API & エンタープライズ統合", "domain": "api" },
           { "name": "モバイル (iOS & Android)", "domain": "mobile" },
-          { "name": "マイクロサービス & DDD", "domain": "platform" },
+          { "name": "マイクロサービス & DDD", "domain": "microservices" },
           { "name": "テクニカルリーダーシップ", "domain": "leadership" },
           { "name": "IBM Cloud、AWS、Azure", "domain": "cloud" },
           { "name": "Webフロントエンド & バックエンド", "domain": "web" }
@@ -1126,7 +1126,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "API & корпоративная интеграция", "domain": "api" },
           { "name": "Мобайл (iOS & Android)", "domain": "mobile" },
-          { "name": "Микросервисы & DDD", "domain": "platform" },
+          { "name": "Микросервисы & DDD", "domain": "microservices" },
           { "name": "Техническое лидерство", "domain": "leadership" },
           { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
           { "name": "Web фронтенд & бэкенд", "domain": "web" }
@@ -1225,7 +1225,7 @@
           { "name": "GenAI & AI/ML", "domain": "ai" },
           { "name": "API & integracja enterprise", "domain": "api" },
           { "name": "Mobile (iOS & Android)", "domain": "mobile" },
-          { "name": "Mikroserwisy & DDD", "domain": "platform" },
+          { "name": "Mikroserwisy & DDD", "domain": "microservices" },
           { "name": "Przywództwo techniczne", "domain": "leadership" },
           { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
           { "name": "Web frontend & backend", "domain": "web" }
