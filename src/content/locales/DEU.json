@@ -1,0 +1,136 @@
+{
+  "siteTitle": "Mario Gijón",
+  "siteSubtitle": "Informatikingenieur",
+  "languageSelectLabel": "Sprache",
+  "navigation": { "home": "Start", "cv": "CV", "contact": "Kontakt" },
+  "home": {
+    "badge": "Solution Architect · IBM",
+    "title": "Mario Gijón",
+    "subtitle": "Informatikingenieur",
+    "description": "Solution Architect spezialisiert auf Cloud-Architektur, GenAI, APIs, Mobile und Web. Ich entwerfe und liefere hochimpaktige Enterprise-Produkte und -Plattformen, die Geschäftsstrategie mit technischer Umsetzung verbinden.",
+    "ctaPrimary": "Meinen CV ansehen",
+    "ctaSecondary": "Kontaktieren",
+    "statsLabel": "Über 10 Jahre Erfahrung",
+    "stat1Value": "10+", "stat1Label": "Jahre Erfahrung",
+    "stat2Value": "20+", "stat2Label": "Abgeschlossene Projekte",
+    "stat3Value": "9",   "stat3Label": "Branchen",
+    "sectorsLabel": "Branchen",
+    "sectors": ["Banking","Retail","Fluggesellschaften","Öffentlicher Sektor","Energie","Industrie","Lebensmittel","Bauwesen","Transport"],
+    "specialtiesLabel": "Schwerpunkte",
+    "specialties": ["Architektur","Cloud","GenAI","APIs","Mobile","Web"],
+    "specialtyDescriptions": {
+      "Architektur": "Entwicklung skalierbarer, sicherer und wartbarer Enterprise-Lösungen im Einklang mit Geschäftszielen.",
+      "Cloud": "Architektur und Deployment auf IBM Cloud, AWS und Azure mit Fokus auf Resilienz und Kosten.",
+      "GenAI": "Konzeption von KI-Agenten, RAG-Pipelines, MCP-Integrationen und GenAI-Plattformen für Großunternehmen.",
+      "APIs": "Definition, Entwicklung und Governance von APIs für Enterprise-Integrations-Ökosysteme.",
+      "Mobile": "Native und hybride iOS- und Android-Apps für Endnutzer und Enterprise-Kontexte.",
+      "Web": "Frontend- und Backend-Webprodukte, Microfrontends und hochfrequente digitale Plattformen."
+    },
+    "photoAlt": "Mario Gijón"
+  },
+  "cv": {
+    "title": "Lebenslauf",
+    "subtitle": "Beruflicher Werdegang",
+    "description": "Informatikingenieur spezialisiert auf Lösungsarchitektur. Über 10 Jahre Erfahrung in der Entwicklung und Lieferung digitaler Enterprise-Produkte.",
+    "currentRoleLabel": "Aktuelle Position",
+    "currentRole": "Mobile & Web Solutions Architect",
+    "currentCompany": "IBM",
+    "locationLabel": "Standort",
+    "location": "Fuenlabrada, Madrid, Spanien",
+    "profileTitle": "Berufliches Profil",
+    "profile": "Solution Architect mit Fokus auf die Konzeption und Umsetzung hochimpaktiger Enterprise-Produkte und -Plattformen. Meine Spezialisierung verbindet Cloud-Architektur, GenAI, APIs, Mobile und Web, um Geschäftsstrategie mit technischer Umsetzung zu verbinden.",
+    "experienceTitle": "Berufserfahrung",
+    "experience": [
+      {
+        "company": "IBM", "logo": "ibm",
+        "role": "Mobile & Web Solutions Architect",
+        "period": "Okt. 2015 – Heute",
+        "location": "Madrid, Spanien",
+        "description": "Solution Architect bei IBM seit über 10 Jahren, leitet Enterprise-Projekte für erstklassige Kunden in mehreren Branchen. Ich entwerfe, leite und liefere hochimpaktige Lösungen durch Cloud, Mobile, Web, GenAI und Enterprise-Integration.",
+        "projects": [
+          { "client": "El Corte Inglés", "logo": "el-corte-ingles", "title": "AI Architecture", "period": "Mai 2025 – Heute", "summary": "Arbeit im Architekturteam von El Corte Inglés, Analyse, Konzeption und Implementierung von KI-Use-Cases von Anfang bis Ende. Definition eines Anwendungsinventar-Tools mit Airflow, KI-Agenten-Lösungen für interne IT-Teams und MCP-Server-Integration mit Jira, Confluence, BMC Helix und SonarQube.", "technologies": ["Azure","GenAI","MCP","RAG","Airflow","Jira","Confluence"] },
+          { "client": "Banco Santander", "logo": "banco-santander", "title": "Global GenAI Platform", "period": "März 2024 – Mai 2025", "summary": "Arbeit im Architekturteam von Santander zur Definition und Gestaltung der Global GenAI Platform, die weltweit GenAI-Produkte und -Dienste für alle Santander-Konsumenten und -Anbieter bereitstellt.", "technologies": ["AWS","Bedrock","GenAI","AI/ML"] },
+          { "client": "Navantia", "logo": "navantia", "title": "Solutions Architecture", "period": "Feb. 2023 – März 2024", "summary": "Definition von Architekturlösungen und Anwendungsentwicklung für die Schiffbauindustrie. Arbeit mit Microservices und Echtzeit-Mustern inkl. Watson Assistant und benutzerdefinierten KI-Modellen. Landschaft umfasst AWS und Azure Cloud-Dienste sowie On-Premise-Cluster mit Kubernetes und OpenShift.", "technologies": ["AWS","Azure","Kubernetes","OpenShift","Microservices","Watson Assistant"] },
+          { "client": "Fútbol Club Barcelona", "logo": "fc-barcelona", "title": "Tickets Mobile App", "period": "Okt. 2022 – Feb. 2023", "summary": "Mobile App für den vollständigen Ticket-Lebenszyklus beim FC Barcelona. Kunden nutzen die Android/iOS-App für den Zugang zu Stadion, Museum etc. Ich arbeitete am Vertriebsprozess und definierte die Lösungsarchitektur.", "technologies": ["iOS","Android","Cloud","APIs"] },
+          { "client": "CTTI", "logo": "ctti", "title": "Llocs de Treball", "period": "Jan. 2022 – Feb. 2023", "summary": "Konzeption und Entwicklung digitaler Werkzeuge für katalanische Staatsangestellte mit Unternehmensarchitektur.", "technologies": ["Cloud","APIs","Web"] },
+          { "client": "Naturgy", "logo": "naturgy", "title": "Digital Architecture", "period": "Aug. 2021 – Dez. 2021", "summary": "Definition von Lösungen für Digitalisierung und Online-Abrechnung in Spanien, Chile und Brasilien.", "technologies": ["Cloud","APIs","Integration"] },
+          { "client": "Plataforma Tierra", "logo": "plataforma-tierra", "title": "Agronet Platform", "period": "Juli 2020 – Dez. 2021", "summary": "Cloud-Plattform auf IBM Cloud mit Microfrontends (Vue.js, Nuxt.js), APIs (IBM API Connect), Node.js-Microservices, DDD, OpenShift, IBM AppID, OAuth2, DevOps-Pipelines, MongoDB, PostgreSQL, Strapi CMS, Watson Machine Learning, The Weather Company API, Google Analytics, Hotjar, HubSpot und Push Notifications für den Agrarsektor.", "technologies": ["IBM Cloud","Vue.js","Nuxt.js","Node.js","Microservices","APIs","OAuth2","Strapi","Watson ML","Push Notifications","Analytics"] },
+          { "client": "Diputación Foral de Vizcaya", "logo": "bizkaiup", "title": "BizkaiUp", "period": "März 2020 – Sep. 2020", "summary": "Native Android/iOS-App für Bürger des Baskenlandes während COVID-19. Enthält: WordPress CMS auf Kubernetes, IBM Push Notifications, Serverless Cloud Functions, Cloudant Database, zwei AR-Erlebnisse, IBM Watson Text- und Sprachassistent, Videokonferenz-Integration und sichere digitale Zugangsberechtigung.", "technologies": ["iOS","Android","IBM Cloud","Watson","Kubernetes","Push Notifications","AR","Cloudant"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Solutions Architect", "period": "Aug. 2019 – März 2020", "summary": "Arbeit als technischer Lösungsarchitekt bei IAG / Iberia Airlines, eng mit Geschäftsanalysten und Entwicklungsteams zusammen, Geschäftsanforderungen verstehen, mögliche Lösungen analysieren und technische Architekturen entwerfen.", "technologies": ["iOS","Android","APIs","Cloud","Architecture"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Passenger Plus", "period": "Nov. 2018 – Aug. 2019", "summary": "Neue Passenger Plus App für Iberia (IAG) Kabinenpersonal. iOS App für iPad 2018 und iPhone XR, designt von IBM iX und implementiert mit IBM Apple Garage. APIs mit Swagger definiert, Geschäftslogik in SpringBoot Microservices, Integration mit IBM Cloud.", "technologies": ["iOS","Microservices","APIs","SpringBoot","Swagger","IBM Cloud"] },
+          { "client": "Bank of Cyprus", "logo": "bank-of-cyprus", "title": "Internet Banking Mobile App", "period": "Okt. 2017 – Nov. 2018", "summary": "Android/iOS-Entwicklung der neuen Internet Banking App für Bank of Cyprus Kunden. API-Definition, Führung von iOS/Android-Teams, Implementierung von Sicherheitsanforderungen. Integration Vasco SDK, OTP-Generierung, Root-Erkennung und Farb-QR-Code-Scan.", "technologies": ["iOS","Android","APIs","Security","Vasco SDK","OTP"] },
+          { "client": "Enemalta", "logo": "enemalta", "title": "Mobility Assessment", "period": "Juni 2017 – Aug. 2017", "summary": "Reifegradanalyse, Mobilitätsbewertung, Mobilitätsstrategie-Definition und 18-Monats-Roadmap für Enemalta, Water Services Corporation und Arms, staatliche Unternehmen Maltas.", "technologies": ["iOS","Android","Mobile Strategy","MDM","Architecture"] },
+          { "client": "EvoBank", "logo": "evobank", "title": "Watson Chatbot SDK", "period": "Mai 2017 – Juli 2017", "summary": "Android- und iOS-SDK zur Integration der Evobank-Mobile-App mit IBM Watson Conversation Virtual Assistant, gehostet auf IBM Bluemix (jetzt IBM Cloud).", "technologies": ["iOS","Android","Watson","IBM Cloud","Watson Conversation"] },
+          { "client": "Técnicas Reunidas", "logo": "tecnicas-reunidas", "title": "Web .NET + iOS App", "period": "Juni 2016 – Okt. 2017", "summary": "Entwicklung einer Web-App mit Bootstrap und ASP .NET sowie einer iOS-App für iPad in Zusammenarbeit mit dem Apple-IBM-Designteam in Chicago und IBM Apple Garage in Indien. Backend-Integration mit Documentum, MS SharePoint, IBM MobileFirst und MS Azure.", "technologies": [".NET","iOS","Azure","IBM MobileFirst","SharePoint","Bootstrap","Documentum"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Fiori S/4HANA Aktivierung", "period": "Apr. 2017 – Mai 2017", "summary": "Installation, Aktivierung und Konfiguration mehrerer Standard-Fiori-Anwendungen für Iberia.", "technologies": ["SAP","SAP Fiori","S/4HANA"] },
+          { "client": "Banco Santander", "logo": "banco-santander", "title": "SO:FIA Broker App", "period": "Okt. 2016 – Feb. 2017", "summary": "Software-Architekt und Projektmanager für die neue Android- und iOS-Online-Broker-App SO:FIA für Banco Santander.", "technologies": ["iOS","Android","APIs","Architecture"] },
+          { "client": "Roca", "logo": "roca", "title": "B2B Mobile App Integration", "period": "Juli 2016 – März 2017", "summary": "Integration der Rocanet-Mobile-App für Lieferanten und Kunden von Roca mit SAP ERP-Backend über SAP Netweaver Gateway.", "technologies": ["iOS","Android","SAP","SAP Netweaver Gateway"] },
+          { "client": "Bankinter", "logo": "bankinter", "title": "Mobile Architektur Design", "period": "Apr. 2016 – Juni 2016", "summary": "Entwurf der Mobilitätsarchitektur für Bankinter. Sicherheit, Obfuskation, Schwachstellenerkennung, Push-Benachrichtigungsplattform, MDM, MAM, MBaaS, CI und agile Methodik.", "technologies": ["iOS","Android","Security","MDM","Architecture","Push Notifications"] },
+          { "client": "Calidad Pascual", "logo": "calidad-pascual", "title": "SAP Fiori UI5", "period": "Jan. 2016 – Apr. 2016", "summary": "Entwicklung einer Web- und Mobile-App mit SAP UI5 für Promotionsmanagement und Kundenzuordnung bei Calidad Pascual in SAP Fiori-Architektur.", "technologies": ["SAP","SAP UI5","SAP Fiori","Mobile","Web"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "Werkstatt-Management UI5", "period": "Okt. 2015 – Dez. 2015", "summary": "Web-App für Ferrovial Servicios mit SAP UI5 für Verwaltung von Arbeitsanfragen, Arbeitsaufträgen sowie Ausrüstung und Maschinen. SAP ECC-Backend mit SAP Netweaver Gateway, OData-Protokoll.", "technologies": ["SAP UI5","SAP Fiori","OData","REST","SAP PM"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "Delivery Notes (CAROL)", "period": "Mai 2015 – Okt. 2015", "summary": "Offline- und Hybrid-Mobile-App mit SAP UI5 und SAP Kapsel-Plugins für die Abfrage und Erstellung von Baulieferscheinen für Ferrovial Construcción. Finalist SAP Awards Europa, Kategorie Innovation.", "technologies": ["SAP UI5","SAP Kapsel","SAP Mobile Platform","OData","REST"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "InSite Phoenix (INSA–IBM)", "period": "Apr. 2013 – Mai 2015", "summary": "Entwicklung der InSite-Anwendung, Projekt Phoenix. Maßgeschneidertes ERP für Ferrovial, entwickelt von IBM. Module für Einkauf, Vertrieb, Finanzen, Planung, Budgetierung, Personalmanagement, Sicherheit, Dokumentenverwaltung und Administration.", "technologies": ["Java","ERP","Web","SQL"] }
+        ]
+      },
+      {
+        "company": "Ministerium für Bildung / Lehre", "logo": null,
+        "role": "Informatiklehrer & IT-Leiter",
+        "period": "2011 – 2013",
+        "location": "Madrid, Spanien",
+        "description": "Lehrer an einem Berufsausbildungszentrum mit Kursen in Programmierung, Systemen und Bürosoftware.",
+        "projects": []
+      }
+    ],
+    "educationTitle": "Ausbildung",
+    "education": [
+      { "institution": "Universidad Rey Juan Carlos", "logo": "universidad-rey-juan-carlos", "degree": "Informatikingenieurwesen", "period": "2005 – 2011", "location": "Madrid, Spanien" },
+      { "institution": "Offizielle Sprachschule", "logo": "escuela-oficial-de-idiomas", "degree": "Englisch — Fortgeschrittenes Niveau", "period": "2008 – 2012", "location": "Madrid, Spanien" }
+    ],
+    "skillsTitle": "Kernkompetenzen",
+    "skills": [
+      { "name": "Cloud-Lösungsarchitektur", "domain": "architecture" },
+      { "name": "GenAI & AI/ML", "domain": "ai" },
+      { "name": "APIs & Enterprise-Integration", "domain": "api" },
+      { "name": "Mobile (iOS & Android)", "domain": "mobile" },
+      { "name": "Microservices & DDD", "domain": "microservices" },
+      { "name": "Technische Führung", "domain": "leadership" },
+      { "name": "IBM Cloud, AWS, Azure", "domain": "cloud" },
+      { "name": "Web Frontend & Backend", "domain": "web" }
+    ],
+    "certTitle": "Zertifizierungen & Badges",
+    "certifications": [
+      { "name": "IBM Mentor", "icon": "ibm" },
+      { "name": "Enterprise Design Thinking Practitioner", "icon": "design" },
+      { "name": "Security Essentials for Architects", "icon": "security" },
+      { "name": "Architect Project Badge — L1", "icon": "architecture" },
+      { "name": "IBM Automation Essentials", "icon": "automation" },
+      { "name": "Travel & Transportation Insights & Solutions", "icon": "transport" },
+      { "name": "Banking Insights & Solutions", "icon": "banking" },
+      { "name": "Android Development Certification", "icon": "android" },
+      { "name": "Linux Administration Certification", "icon": "linux" },
+      { "name": "API definition, development, testing and automation", "icon": "api" }
+    ],
+    "languagesTitle": "Sprachen",
+    "languages": [
+      { "name": "Spanisch", "level": "Muttersprache" },
+      { "name": "Englisch", "level": "Fortgeschritten / Fließend" }
+    ],
+    "linkedinCta": "LinkedIn-Profil ansehen",
+    "linkedinUrl": "https://www.linkedin.com/in/mario-gij%C3%B3n-soria"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Der beste Weg, mich zu erreichen, ist über LinkedIn. Ich bin aktiv und antworte auf alle Nachrichten.",
+    "linkedinLabel": "LinkedIn",
+    "linkedinHandle": "mario-gijón-soria",
+    "linkedinUrl": "https://www.linkedin.com/in/mario-gij%C3%B3n-soria",
+    "linkedinCta": "Auf LinkedIn verbinden",
+    "locationLabel": "Standort",
+    "location": "Fuenlabrada, Madrid, Spanien",
+    "availabilityLabel": "Verfügbarkeit",
+    "availability": "Offen für Kooperationen und neue Projekte",
+    "photoCaption": "Foto von meinem Besuch im Houston Space Center, Texas."
+  },
+  "notFound": { "message": "Diese Seite existiert nicht.", "button": "Zurück zur Startseite" },
+  "footer": { "copyright": "© {year} Mario Gijón", "version": "v{version}" }
+}

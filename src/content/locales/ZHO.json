@@ -1,0 +1,136 @@
+{
+  "siteTitle": "马里奥·吉宏",
+  "siteSubtitle": "计算机工程师",
+  "languageSelectLabel": "语言",
+  "navigation": { "home": "首页", "cv": "简历", "contact": "联系" },
+  "home": {
+    "badge": "解决方案架构师 · IBM",
+    "title": "Mario Gijón",
+    "subtitle": "计算机工程师",
+    "description": "专注于云架构、GenAI、API、移动和Web的解决方案架构师。设计并交付高影响力的企业级产品和平台，连接业务战略与技术执行。",
+    "ctaPrimary": "查看我的简历",
+    "ctaSecondary": "联系我",
+    "statsLabel": "10年以上经验",
+    "stat1Value": "10+", "stat1Label": "年经验",
+    "stat2Value": "20+", "stat2Label": "交付项目",
+    "stat3Value": "9",   "stat3Label": "行业",
+    "sectorsLabel": "行业",
+    "sectors": ["银行","零售","航空公司","公共部门","能源","工业","农业食品","建筑","交通"],
+    "specialtiesLabel": "专业领域",
+    "specialties": ["架构","云计算","GenAI","API","移动端","Web"],
+    "specialtyDescriptions": {
+      "架构": "设计可扩展、安全且可维护的企业解决方案，与业务目标保持一致。",
+      "云计算": "在IBM Cloud、AWS和Azure上进行架构设计与部署，专注于弹性与成本效益。",
+      "GenAI": "为顶级企业设计AI智能体、RAG流水线、MCP集成和GenAI平台。",
+      "API": "为企业集成生态系统定义、开发和治理API。",
+      "移动端": "为终端用户和企业场景开发原生及混合iOS与Android应用。",
+      "Web": "前后端Web产品、微前端和高流量数字平台。"
+    },
+    "photoAlt": "Mario Gijón"
+  },
+  "cv": {
+    "title": "个人简历",
+    "subtitle": "职业经历",
+    "description": "专注于解决方案架构的计算机工程师，10年以上企业数字产品设计与交付经验。",
+    "currentRoleLabel": "当前职位",
+    "currentRole": "Mobile & Web Solutions Architect",
+    "currentCompany": "IBM",
+    "locationLabel": "所在地",
+    "location": "西班牙马德里富恩拉夫拉达",
+    "profileTitle": "职业简介",
+    "profile": "解决方案架构师，专注于设计和推动高影响力的企业级产品和平台。我的专业领域结合了云架构、GenAI、API、移动端和Web，连接业务战略与技术执行。",
+    "experienceTitle": "工作经历",
+    "experience": [
+      {
+        "company": "IBM", "logo": "ibm",
+        "role": "Mobile & Web Solutions Architect",
+        "period": "2015年10月 – 至今",
+        "location": "西班牙马德里",
+        "description": "在IBM担任解决方案架构师逾10年，为多个行业的顶级客户主导企业级项目。综合云计算、移动端、Web、GenAI及企业集成，设计并交付高影响力解决方案。",
+        "projects": [
+          { "client": "El Corte Inglés", "logo": "el-corte-ingles", "title": "AI Architecture", "period": "2025年5月 – 至今", "summary": "作为El Corte Inglés架构团队成员，端到端分析、设计和实施AI用例。使用Airflow定义应用程序清单工具，为内部IT团队提供AI智能体解决方案，并与Jira、Confluence、BMC Helix和SonarQube集成MCP服务器。", "technologies": ["Azure","GenAI","MCP","RAG","Airflow","Jira","Confluence"] },
+          { "client": "Banco Santander", "logo": "banco-santander", "title": "Global GenAI Platform", "period": "2024年3月 – 2025年5月", "summary": "作为桑坦德架构团队成员，定义并设计Global GenAI Platform，该平台将为全球所有桑坦德消费者和提供者提供GenAI产品和服务。", "technologies": ["AWS","Bedrock","GenAI","AI/ML"] },
+          { "client": "Navantia", "logo": "navantia", "title": "Solutions Architecture", "period": "2023年2月 – 2024年3月", "summary": "为海工行业定义架构解决方案并开发应用程序。使用微服务和实时模式，包括Watson Assistant和自定义AI模型。技术景观包括AWS和Azure云服务以及Kubernetes和OpenShift本地集群。", "technologies": ["AWS","Azure","Kubernetes","OpenShift","微服务","Watson Assistant"] },
+          { "client": "Fútbol Club Barcelona", "logo": "fc-barcelona", "title": "Tickets Mobile App", "period": "2022年10月 – 2023年2月", "summary": "管理FC巴萨购票后完整票务生命周期的移动应用。参加任何俱乐部活动的客户使用Android/iOS应用访问球场、博物馆等。我参与了销售流程并定义了解决方案架构。", "technologies": ["iOS","Android","Cloud","APIs"] },
+          { "client": "CTTI", "logo": "ctti", "title": "Llocs de Treball", "period": "2022年1月 – 2023年2月", "summary": "为加泰罗尼亚公务员设计并开发基于企业架构的数字化工作工具。", "technologies": ["Cloud","APIs","Web"] },
+          { "client": "Naturgy", "logo": "naturgy", "title": "Digital Architecture", "period": "2021年8月 – 2021年12月", "summary": "为西班牙、智利和巴西市场定义数字化与在线账单解决方案。", "technologies": ["Cloud","APIs","集成"] },
+          { "client": "Plataforma Tierra", "logo": "plataforma-tierra", "title": "Agronet Platform", "period": "2020年7月 – 2021年12月", "summary": "基于IBM Cloud构建农业云平台，集成微前端(Vue.js, Nuxt.js)、API(IBM API Connect)、Node.js微服务、DDD、OpenShift、IBM AppID、OAuth2、DevOps流水线、MongoDB、PostgreSQL、Strapi CMS、Watson机器学习、天气公司API、谷歌分析、Hotjar、HubSpot和推送通知。", "technologies": ["IBM Cloud","Vue.js","Nuxt.js","Node.js","微服务","APIs","OAuth2","Strapi","Watson ML","Push Notifications","Analytics"] },
+          { "client": "Diputación Foral de Vizcaya", "logo": "bizkaiup", "title": "BizkaiUp", "period": "2020年3月 – 2020年9月", "summary": "疫情期间为比斯开省市民打造的原生Android/iOS移动应用。包含：Kubernetes上的WordPress CMS、IBM推送通知、无服务器云函数、Cloudant数据库、两个增强现实体验、IBM Watson文字和语音助手、视频会议集成以及法律手续用安全数字凭证。", "technologies": ["iOS","Android","IBM Cloud","Watson","Kubernetes","Push Notifications","AR","Cloudant"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Solutions Architect", "period": "2019年8月 – 2020年3月", "summary": "在IAG/伊比利亚航空担任技术解决方案架构师，与业务分析师和开发团队紧密合作，理解业务需求，分析可能的解决方案并设计技术架构。", "technologies": ["iOS","Android","APIs","Cloud","Architecture"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Passenger Plus", "period": "2018年11月 – 2019年8月", "summary": "伊比利亚(IAG)客舱机组人员全新Passenger Plus应用。iPad 2018和iPhone XR的iOS应用，由IBM iX设计，使用IBM Apple Garage实施。API用Swagger定义，业务逻辑在SpringBoot微服务中，与IBM Cloud集成。", "technologies": ["iOS","微服务","APIs","SpringBoot","Swagger","IBM Cloud"] },
+          { "client": "Bank of Cyprus", "logo": "bank-of-cyprus", "title": "Internet Banking Mobile App", "period": "2017年10月 – 2018年11月", "summary": "为塞浦路斯银行客户开发新Internet Banking应用的Android/iOS端。API定义、iOS和Android团队领导、安全需求实施。集成Vasco SDK实现安全、OTP生成、root检测和彩色QR码扫描。", "technologies": ["iOS","Android","APIs","安全","Vasco SDK","OTP"] },
+          { "client": "Enemalta", "logo": "enemalta", "title": "Mobility Assessment", "period": "2017年6月 – 2017年8月", "summary": "为马耳他政府旗下Enemalta、Water Services Corporation和Arms公司评估移动成熟度模型、移动能力，定义移动战略，推荐移动平台和工具，并制定18个月移动架构和应用开发路线图。", "technologies": ["iOS","Android","Mobile Strategy","MDM","Architecture"] },
+          { "client": "EvoBank", "logo": "evobank", "title": "Watson Chatbot SDK", "period": "2017年5月 – 2017年7月", "summary": "开发Android和iOS SDK，将Evobank移动应用与托管在IBM Bluemix(现IBM Cloud)上的IBM Watson Conversation虚拟助手集成。", "technologies": ["iOS","Android","Watson","IBM Cloud","Watson Conversation"] },
+          { "client": "Técnicas Reunidas", "logo": "tecnicas-reunidas", "title": "Web .NET + iOS App", "period": "2016年6月 – 2017年10月", "summary": "使用Bootstrap和ASP .NET开发Web应用及iPad iOS应用，与芝加哥Apple-IBM设计团队和印度IBM Apple Garage合作。后端集成Documentum、MS SharePoint、IBM MobileFirst和MS Azure，用于材料和设备检验管理。", "technologies": [".NET","iOS","Azure","IBM MobileFirst","SharePoint","Bootstrap","Documentum"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Fiori S/4HANA激活", "period": "2017年4月 – 2017年5月", "summary": "为伊比利亚安装、激活和配置多个标准Fiori应用。", "technologies": ["SAP","SAP Fiori","S/4HANA"] },
+          { "client": "Banco Santander", "logo": "banco-santander", "title": "SO:FIA Broker App", "period": "2016年10月 – 2017年2月", "summary": "担任桑坦德银行新Android和iOS在线券商SO:FIA应用的软件架构师和项目经理。", "technologies": ["iOS","Android","APIs","Architecture"] },
+          { "client": "Roca", "logo": "roca", "title": "B2B移动应用集成", "period": "2016年7月 – 2017年3月", "summary": "通过SAP Netweaver Gateway将Roca供应商和客户的Rocanet移动应用与SAP ERP后端集成。", "technologies": ["iOS","Android","SAP","SAP Netweaver Gateway"] },
+          { "client": "Bankinter", "logo": "bankinter", "title": "移动架构设计", "period": "2016年4月 – 2016年6月", "summary": "为Bankinter设计移动架构。安全、混淆、漏洞检测、推送通知平台、MDM、MAM、MBaaS、持续集成和敏捷方法论。", "technologies": ["iOS","Android","Security","MDM","Architecture","Push Notifications"] },
+          { "client": "Calidad Pascual", "logo": "calidad-pascual", "title": "SAP Fiori UI5", "period": "2016年1月 – 2016年4月", "summary": "使用SAP UI5技术开发Web和移动应用，用于Calidad Pascual在SAP Fiori架构下的促销管理和客户分配。", "technologies": ["SAP","SAP UI5","SAP Fiori","Mobile","Web"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "工单管理UI5", "period": "2015年10月 – 2015年12月", "summary": "为Ferrovial Servicios开发SAP UI5 Web应用，用于工单请求、工作订单及设备机械管理。SAP ECC后端配合SAP Netweaver Gateway，OData协议。", "technologies": ["SAP UI5","SAP Fiori","OData","REST","SAP PM"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "交货单应用(CAROL)", "period": "2015年5月 – 2015年10月", "summary": "使用SAP UI5和SAP Kapsel插件开发的离线混合移动应用，用于Ferrovial Construcción的施工交货单查询和创建。SAP Awards欧洲创新类别决赛入围者。", "technologies": ["SAP UI5","SAP Kapsel","SAP Mobile Platform","OData","REST"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "InSite Phoenix (INSA–IBM)", "period": "2013年4月 – 2015年5月", "summary": "开发InSite应用，Phoenix项目。IBM为Ferrovial开发的定制ERP。涵盖采购、销售、财务、规划、预算、人事管理、安全、文件管理和行政管理模块。", "technologies": ["Java","ERP","Web","SQL"] }
+        ]
+      },
+      {
+        "company": "教育部 / 教学", "logo": null,
+        "role": "计算机教师 & IT负责人",
+        "period": "2011 – 2013",
+        "location": "西班牙马德里",
+        "description": "在职业培训中心任教，讲授编程、系统及办公信息学课程。",
+        "projects": []
+      }
+    ],
+    "educationTitle": "教育背景",
+    "education": [
+      { "institution": "胡安·卡洛斯国王大学", "logo": "universidad-rey-juan-carlos", "degree": "计算机工程", "period": "2005 – 2011", "location": "西班牙马德里" },
+      { "institution": "官方语言学校", "logo": "escuela-oficial-de-idiomas", "degree": "英语 — 高级水平", "period": "2008 – 2012", "location": "西班牙马德里" }
+    ],
+    "skillsTitle": "核心能力",
+    "skills": [
+      { "name": "云解决方案架构", "domain": "architecture" },
+      { "name": "GenAI & AI/ML", "domain": "ai" },
+      { "name": "API & 企业集成", "domain": "api" },
+      { "name": "移动端 (iOS & Android)", "domain": "mobile" },
+      { "name": "微服务 & DDD", "domain": "microservices" },
+      { "name": "技术领导力", "domain": "leadership" },
+      { "name": "IBM Cloud、AWS、Azure", "domain": "cloud" },
+      { "name": "Web前端 & 后端", "domain": "web" }
+    ],
+    "certTitle": "认证 & 徽章",
+    "certifications": [
+      { "name": "IBM Mentor", "icon": "ibm" },
+      { "name": "Enterprise Design Thinking Practitioner", "icon": "design" },
+      { "name": "Security Essentials for Architects", "icon": "security" },
+      { "name": "Architect Project Badge — L1", "icon": "architecture" },
+      { "name": "IBM Automation Essentials", "icon": "automation" },
+      { "name": "Travel & Transportation Insights & Solutions", "icon": "transport" },
+      { "name": "Banking Insights & Solutions", "icon": "banking" },
+      { "name": "Android Development Certification", "icon": "android" },
+      { "name": "Linux Administration Certification", "icon": "linux" },
+      { "name": "API definition, development, testing and automation", "icon": "api" }
+    ],
+    "languagesTitle": "语言",
+    "languages": [
+      { "name": "西班牙语", "level": "母语" },
+      { "name": "英语", "level": "高级 / 流利" }
+    ],
+    "linkedinCta": "查看LinkedIn个人资料",
+    "linkedinUrl": "https://www.linkedin.com/in/mario-gij%C3%B3n-soria"
+  },
+  "contact": {
+    "title": "联系方式",
+    "description": "联系我的最佳方式是通过LinkedIn。我很活跃，会回复所有消息。",
+    "linkedinLabel": "LinkedIn",
+    "linkedinHandle": "mario-gijón-soria",
+    "linkedinUrl": "https://www.linkedin.com/in/mario-gij%C3%B3n-soria",
+    "linkedinCta": "在LinkedIn上联系",
+    "locationLabel": "所在地",
+    "location": "西班牙马德里富恩拉夫拉达",
+    "availabilityLabel": "可合作状态",
+    "availability": "欢迎合作与新项目",
+    "photoCaption": "我参观德克萨斯州休斯顿太空中心时拍摄的照片。"
+  },
+  "notFound": { "message": "此页面不存在。", "button": "返回首页" },
+  "footer": { "copyright": "© {year} Mario Gijón", "version": "v{version}" }
+}

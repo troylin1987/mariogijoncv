@@ -1,9 +1,23 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom';
-import copy from './content/copy.json';
+import meta from './content/copy.json';
 import CookieBanner from './components/CookieBanner';
 import { applyCookieConsent, readCookieConsent, trackPageView } from './lib/analytics';
 import { mediaPath, withBase } from './lib/paths';
+
+// ── Per-locale content imports ──
+import SPA from './content/locales/SPA.json';
+import ENG from './content/locales/ENG.json';
+import CAT from './content/locales/CAT.json';
+import FRA from './content/locales/FRA.json';
+import DEU from './content/locales/DEU.json';
+import ITA from './content/locales/ITA.json';
+import ZHO from './content/locales/ZHO.json';
+import JPN from './content/locales/JPN.json';
+import RUS from './content/locales/RUS.json';
+import POL from './content/locales/POL.json';
+
+const LOCALE_MAP: Record<string, any> = { SPA, ENG, CAT, FRA, DEU, ITA, ZHO, JPN, RUS, POL };
 
 const CVPage       = lazy(() => import('./pages/CVPage'));
 const ContactPage  = lazy(() => import('./pages/ContactPage'));
@@ -42,18 +56,17 @@ function PageFallback() {
 
 function AppContent() {
   const location = useLocation();
-  const [locale, setLocale] = useState<string>(copy.defaultLanguage);
+  const [locale, setLocale] = useState<string>(meta.defaultLanguage);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const languageOptions = copy.supportedLanguages as string[];
-  const contentMap = copy.content as Record<string, any>;
-  const defaultContent = contentMap[copy.defaultLanguage] ?? {};
+  const languageOptions = meta.supportedLanguages as string[];
+  const defaultContent = (LOCALE_MAP[meta.defaultLanguage] ?? {}) as Record<string, any>;
 
   const localeContent = useMemo(() => {
-    const selected = contentMap[locale] ?? {};
+    const selected = (LOCALE_MAP[locale] ?? {}) as Record<string, any>;
     return deepMerge(defaultContent, selected);
-  }, [locale, contentMap, defaultContent]);
+  }, [locale, defaultContent]);
 
   const version = import.meta.env.VITE_APP_VERSION ?? '1.0.0';
   const navItems = [
@@ -222,10 +235,10 @@ function AppContent() {
       </div>
 
       {/* ── FOOTER ── */}
-      <footer className="border-t border-white/[0.06] px-5 py-5 lg:px-8">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 text-[12px] text-white/25">
-          <p>{localeContent.footer?.copyright?.replace('{year}', `${new Date().getFullYear()}`)}</p>
-          <p className="font-mono">{localeContent.footer?.version?.replace('{version}', version)}</p>
+      <footer className="border-t border-brand-primary/[0.15] px-5 py-5 lg:px-8">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 text-[12px]">
+          <p className="text-brand-light/50">{localeContent.footer?.copyright?.replace('{year}', `${new Date().getFullYear()}`)}</p>
+          <p className="font-mono text-brand-teal/60">{localeContent.footer?.version?.replace('{version}', version)}</p>
         </div>
       </footer>
 

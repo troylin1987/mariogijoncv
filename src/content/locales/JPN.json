@@ -1,0 +1,136 @@
+{
+  "siteTitle": "マリオ・ヒホン",
+  "siteSubtitle": "コンピューターエンジニア",
+  "languageSelectLabel": "言語",
+  "navigation": { "home": "ホーム", "cv": "履歴書", "contact": "お問い合わせ" },
+  "home": {
+    "badge": "ソリューションアーキテクト · IBM",
+    "title": "Mario Gijón",
+    "subtitle": "コンピューターエンジニア",
+    "description": "クラウドアーキテクチャ、GenAI、API、モバイル、Webを専門とするソリューションアーキテクト。高インパクトなエンタープライズ製品とプラットフォームを設計・提供し、ビジネス戦略と技術実行を橋渡しします。",
+    "ctaPrimary": "履歴書を見る",
+    "ctaSecondary": "お問い合わせ",
+    "statsLabel": "10年以上の経験",
+    "stat1Value": "10+", "stat1Label": "年の経験",
+    "stat2Value": "20+", "stat2Label": "プロジェクト納品",
+    "stat3Value": "9",   "stat3Label": "業界",
+    "sectorsLabel": "業界",
+    "sectors": ["銀行","小売","航空会社","公共部門","エネルギー","産業","農業食品","建設","輸送"],
+    "specialtiesLabel": "専門分野",
+    "specialties": ["アーキテクチャ","クラウド","GenAI","API","モバイル","Web"],
+    "specialtyDescriptions": {
+      "アーキテクチャ": "ビジネス目標に沿った、スケーラブルで安全かつ保守可能なエンタープライズソリューションの設計。",
+      "クラウド": "IBM Cloud、AWS、Azureでのアーキテクチャとデプロイメント。レジリエンスとコストに注力。",
+      "GenAI": "大企業向けAIエージェント、RAGパイプライン、MCP統合、GenAIプラットフォームの設計。",
+      "API": "エンタープライズ統合エコシステム向けAPIの定義、開発、ガバナンス。",
+      "モバイル": "エンドユーザーおよびエンタープライズ向けのネイティブおよびハイブリッドiOS・Androidアプリ。",
+      "Web": "フロントエンド・バックエンドWebプロダクト、マイクロフロントエンド、高トラフィックデジタルプラットフォーム。"
+    },
+    "photoAlt": "Mario Gijón"
+  },
+  "cv": {
+    "title": "履歴書",
+    "subtitle": "職務経歴",
+    "description": "ソリューションアーキテクチャ専門のコンピューターエンジニア。エンタープライズデジタル製品の設計・提供に10年以上の経験。",
+    "currentRoleLabel": "現在のポジション",
+    "currentRole": "Mobile & Web Solutions Architect",
+    "currentCompany": "IBM",
+    "locationLabel": "所在地",
+    "location": "スペイン、マドリード、フエンラブラダ",
+    "profileTitle": "職業プロフィール",
+    "profile": "高インパクトなエンタープライズ製品・プラットフォームの設計・推進に注力するソリューションアーキテクト。クラウドアーキテクチャ、GenAI、API、モバイル、Webを組み合わせてビジネス戦略と技術実行を結びつけます。",
+    "experienceTitle": "職務経歴",
+    "experience": [
+      {
+        "company": "IBM", "logo": "ibm",
+        "role": "Mobile & Web Solutions Architect",
+        "period": "2015年10月 – 現在",
+        "location": "スペイン、マドリード",
+        "description": "IBM でソリューションアーキテクトとして10年以上、複数業界のトップクライアント向けエンタープライズプロジェクトをリード。クラウド、モバイル、Web、GenAI、エンタープライズ統合を組み合わせた高インパクトソリューションを設計・提供。",
+        "projects": [
+          { "client": "El Corte Inglés", "logo": "el-corte-ingles", "title": "AI Architecture", "period": "2025年5月 – 現在", "summary": "El Corte Inglésのアーキテクチャチームの一員として、AIユースケースをエンドツーエンドで分析・設計・実装。Airflowを活用したアプリケーション台帳ツールの定義、内部ITチーム向けAIエージェントソリューション、Jira・Confluence・BMC Helix・SonarQubeとのMCPサーバー統合。", "technologies": ["Azure","GenAI","MCP","RAG","Airflow","Jira","Confluence"] },
+          { "client": "Banco Santander", "logo": "banco-santander", "title": "Global GenAI Platform", "period": "2024年3月 – 2025年5月", "summary": "サンタンデールのアーキテクチャチームの一員として、世界中のすべてのサンタンデール消費者・プロバイダーにGenAI製品とサービスを提供するGlobal GenAI Platformを定義・設計。", "technologies": ["AWS","Bedrock","GenAI","AI/ML"] },
+          { "client": "Navantia", "logo": "navantia", "title": "Solutions Architecture", "period": "2023年2月 – 2024年3月", "summary": "造船業向けの架構ソリューション定義とアプリ開発。Watson AssistantやカスタムAIモデルを含むマイクロサービスとリアルタイムパターンで作業。AWSおよびAzureクラウドサービス、KubernetesとOpenShiftのオンプレミスクラスターを含む技術景観。", "technologies": ["AWS","Azure","Kubernetes","OpenShift","マイクロサービス","Watson Assistant"] },
+          { "client": "Fútbol Club Barcelona", "logo": "fc-barcelona", "title": "Tickets Mobile App", "period": "2022年10月 – 2023年2月", "summary": "FCバルセロナでチケット購入後の完全なライフサイクルを管理するモバイルアプリ。クラブのどのイベントに参加する顧客も、Android/iOSアプリを使ってスタジアム、博物館等に入場。販売プロセスに参加しソリューションアーキテクチャを定義。", "technologies": ["iOS","Android","Cloud","APIs"] },
+          { "client": "CTTI", "logo": "ctti", "title": "Llocs de Treball", "period": "2022年1月 – 2023年2月", "summary": "エンタープライズアーキテクチャを用いたカタルーニャ公務員向けデジタルワークツールの設計・開発。", "technologies": ["Cloud","APIs","Web"] },
+          { "client": "Naturgy", "logo": "naturgy", "title": "Digital Architecture", "period": "2021年8月 – 2021年12月", "summary": "スペイン、チリ、ブラジル向けデジタル化およびオンライン請求ソリューションの定義。", "technologies": ["Cloud","APIs","統合"] },
+          { "client": "Plataforma Tierra", "logo": "plataforma-tierra", "title": "Agronet Platform", "period": "2020年7月 – 2021年12月", "summary": "IBM Cloudのマイクロフロントエンド(Vue.js, Nuxt.js)、API(IBM API Connect)、Node.jsマイクロサービス、DDD、OpenShift、IBM AppID、OAuth2、DevOpsパイプライン、MongoDB、PostgreSQL、Strapi CMS、Watson ML、The Weather Company API、Google Analytics、Hotjar、HubSpot、プッシュ通知を含む農業クラウドプラットフォーム。", "technologies": ["IBM Cloud","Vue.js","Nuxt.js","Node.js","マイクロサービス","APIs","OAuth2","Strapi","Watson ML","Push Notifications","Analytics"] },
+          { "client": "Diputación Foral de Vizcaya", "logo": "bizkaiup", "title": "BizkaiUp", "period": "2020年3月 – 2020年9月", "summary": "COVID-19対応のビスカヤ州市民向けネイティブAndroid/iOSアプリ。Kubernetes上のWordPress CMS、IBM Push Notifications、Serverless Cloud Functions、Cloudant Database、2つのAR体験、IBM Watsonテキスト・音声アシスタント、ビデオ会議統合、法的手続き用安全デジタル証明を含む。", "technologies": ["iOS","Android","IBM Cloud","Watson","Kubernetes","Push Notifications","AR","Cloudant"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Solutions Architect", "period": "2019年8月 – 2020年3月", "summary": "IAG/イベリア航空でビジネスアナリストや開発チームと連携する技術ソリューションアーキテクトとして、ビジネス要件を理解し、解決策を分析し、技術アーキテクチャを設計。", "technologies": ["iOS","Android","APIs","Cloud","Architecture"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Passenger Plus", "period": "2018年11月 – 2019年8月", "summary": "イベリア(IAG)客室乗務員向け新Passenger Plusアプリ。iPad 2018とiPhone XR向けiOSアプリ、IBM iXが設計しIBM Apple Garageで実装。SwaggerでAPI定義、SpringBootマイクロサービスにビジネスロジック、IBM Cloudと統合。", "technologies": ["iOS","マイクロサービス","APIs","SpringBoot","Swagger","IBM Cloud"] },
+          { "client": "Bank of Cyprus", "logo": "bank-of-cyprus", "title": "Internet Banking Mobile App", "period": "2017年10月 – 2018年11月", "summary": "塞浦路斯銀行顧客向け新Internet BankingアプリのAndroid/iOS開発。API定義、iOS・Androidチームリード、セキュリティ要件実装。Vasco SDKによるセキュリティ、OTP生成、ルート検出、カラーQRコードスキャン統合。", "technologies": ["iOS","Android","APIs","セキュリティ","Vasco SDK","OTP"] },
+          { "client": "Enemalta", "logo": "enemalta", "title": "Mobility Assessment", "period": "2017年6月 – 2017年8月", "summary": "マルタ政府のEnemalta、Water Services Corporation、Arms向けに成熟度モデル評価、モビリティ能力評価、モビリティ戦略定義、プラットフォーム推奨、18ヶ月ロードマップ策定を実施。", "technologies": ["iOS","Android","Mobile Strategy","MDM","Architecture"] },
+          { "client": "EvoBank", "logo": "evobank", "title": "Watson Chatbot SDK", "period": "2017年5月 – 2017年7月", "summary": "IBM Bluemix(現IBM Cloud)でホストされているIBM Watson ConversationバーチャルアシスタントとEvobankモバイルアプリを統合するAndroid/iOS SDK開発。", "technologies": ["iOS","Android","Watson","IBM Cloud","Watson Conversation"] },
+          { "client": "Técnicas Reunidas", "logo": "tecnicas-reunidas", "title": "Web .NET + iOS App", "period": "2016年6月 – 2017年10月", "summary": "シカゴのApple-IBMデザインチームおよびインドのIBM Apple Garageと協力してBootstrap・ASP .NETウェブアプリとiPad向けiOSアプリを開発。Documentum、MS SharePoint、IBM MobileFirst、MS Azureとバックエンド統合。", "technologies": [".NET","iOS","Azure","IBM MobileFirst","SharePoint","Bootstrap","Documentum"] },
+          { "client": "Iberia", "logo": "iberia", "title": "Fiori S/4HANAアクティベーション", "period": "2017年4月 – 2017年5月", "summary": "イベリア向けに複数の標準Fioriアプリをインストール・アクティベーション・設定。", "technologies": ["SAP","SAP Fiori","S/4HANA"] },
+          { "client": "Banco Santander", "logo": "banco-santander", "title": "SO:FIA Broker App", "period": "2016年10月 – 2017年2月", "summary": "サンタンデール銀行向けAndroid・iOS新オンラインブローカーSO:FIAアプリのソフトウェアアーキテクト・プロジェクトマネージャー。", "technologies": ["iOS","Android","APIs","Architecture"] },
+          { "client": "Roca", "logo": "roca", "title": "B2Bモバイルアプリ統合", "period": "2016年7月 – 2017年3月", "summary": "SAP Netweaver GatewayでRocaのサプライヤー・顧客向けRocanetモバイルアプリをSAP ERPバックエンドと統合。", "technologies": ["iOS","Android","SAP","SAP Netweaver Gateway"] },
+          { "client": "Bankinter", "logo": "bankinter", "title": "モバイルアーキテクチャ設計", "period": "2016年4月 – 2016年6月", "summary": "Bankinter向けモバイルアーキテクチャ設計。セキュリティ、難読化、脆弱性検出、プッシュ通知プラットフォーム、MDM、MAM、MBaaS、CI/CDとアジャイル手法。", "technologies": ["iOS","Android","Security","MDM","Architecture","Push Notifications"] },
+          { "client": "Calidad Pascual", "logo": "calidad-pascual", "title": "SAP Fiori UI5", "period": "2016年1月 – 2016年4月", "summary": "SAP Fioriアーキテクチャ上でCalidad Pascualのプロモーション管理と顧客割り当てのためSAP UI5技術を使ったWebおよびモバイルアプリを開発。", "technologies": ["SAP","SAP UI5","SAP Fiori","Mobile","Web"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "ワークショップ管理UI5", "period": "2015年10月 – 2015年12月", "summary": "SAP UI5を使ったFerrovial Servicios向けWebアプリ。作業依頼・作業指示・設備機械管理。SAP ECC バックエンド、SAP Netweaver Gateway、ODataプロトコル。", "technologies": ["SAP UI5","SAP Fiori","OData","REST","SAP PM"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "納品書アプリ(CAROL)", "period": "2015年5月 – 2015年10月", "summary": "SAP UI5とSAP KapselプラグインによるFerrovial Construcción向けオフライン・ハイブリッドモバイルアプリ。現場納品書の照会・作成。SAP Awardsヨーロッパ革新部門ファイナリスト。", "technologies": ["SAP UI5","SAP Kapsel","SAP Mobile Platform","OData","REST"] },
+          { "client": "Ferrovial", "logo": "ferrovial", "title": "InSite Phoenix (INSA–IBM)", "period": "2013年4月 – 2015年5月", "summary": "InSiteアプリ、Phoenixプロジェクトの開発。IBMがFerrovial向けに開発したカスタムERP。購買、販売、財務、計画、予算、人事管理、セキュリティ、文書管理、管理モジュールを含む。", "technologies": ["Java","ERP","Web","SQL"] }
+        ]
+      },
+      {
+        "company": "教育省 / 教育", "logo": null,
+        "role": "情報科学教師 & ITリーダー",
+        "period": "2011 – 2013",
+        "location": "スペイン、マドリード",
+        "description": "職業訓練センターで教師として、プログラミング、システム、オフィス情報学のコースを担当。",
+        "projects": []
+      }
+    ],
+    "educationTitle": "学歴",
+    "education": [
+      { "institution": "レイ・フアン・カルロス大学", "logo": "universidad-rey-juan-carlos", "degree": "コンピューターエンジニアリング", "period": "2005 – 2011", "location": "スペイン、マドリード" },
+      { "institution": "公立語学学校", "logo": "escuela-oficial-de-idiomas", "degree": "英語 — 上級レベル", "period": "2008 – 2012", "location": "スペイン、マドリード" }
+    ],
+    "skillsTitle": "コアコンピテンシー",
+    "skills": [
+      { "name": "クラウドソリューションアーキテクチャ", "domain": "architecture" },
+      { "name": "GenAI & AI/ML", "domain": "ai" },
+      { "name": "API & エンタープライズ統合", "domain": "api" },
+      { "name": "モバイル (iOS & Android)", "domain": "mobile" },
+      { "name": "マイクロサービス & DDD", "domain": "microservices" },
+      { "name": "テクニカルリーダーシップ", "domain": "leadership" },
+      { "name": "IBM Cloud、AWS、Azure", "domain": "cloud" },
+      { "name": "Webフロントエンド & バックエンド", "domain": "web" }
+    ],
+    "certTitle": "認定資格 & バッジ",
+    "certifications": [
+      { "name": "IBM Mentor", "icon": "ibm" },
+      { "name": "Enterprise Design Thinking Practitioner", "icon": "design" },
+      { "name": "Security Essentials for Architects", "icon": "security" },
+      { "name": "Architect Project Badge — L1", "icon": "architecture" },
+      { "name": "IBM Automation Essentials", "icon": "automation" },
+      { "name": "Travel & Transportation Insights & Solutions", "icon": "transport" },
+      { "name": "Banking Insights & Solutions", "icon": "banking" },
+      { "name": "Android Development Certification", "icon": "android" },
+      { "name": "Linux Administration Certification", "icon": "linux" },
+      { "name": "API definition, development, testing and automation", "icon": "api" }
+    ],
+    "languagesTitle": "言語",
+    "languages": [
+      { "name": "スペイン語", "level": "ネイティブ" },
+      { "name": "英語", "level": "上級 / 流暢" }
+    ],
+    "linkedinCta": "LinkedInプロフィールを見る",
+    "linkedinUrl": "https://www.linkedin.com/in/mario-gij%C3%B3n-soria"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "description": "ご連絡はLinkedInが最適です。積極的に活動しており、すべてのメッセージに返信します。",
+    "linkedinLabel": "LinkedIn",
+    "linkedinHandle": "mario-gijón-soria",
+    "linkedinUrl": "https://www.linkedin.com/in/mario-gij%C3%B3n-soria",
+    "linkedinCta": "LinkedInでつながる",
+    "locationLabel": "所在地",
+    "location": "スペイン、マドリード、フエンラブラダ",
+    "availabilityLabel": "対応可能状況",
+    "availability": "コラボレーションや新プロジェクト歓迎",
+    "photoCaption": "テキサス州ヒューストン宇宙センター訪問時の写真。"
+  },
+  "notFound": { "message": "このページは存在しません。", "button": "ホームに戻る" },
+  "footer": { "copyright": "© {year} Mario Gijón", "version": "v{version}" }
+}

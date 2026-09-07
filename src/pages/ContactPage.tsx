@@ -76,7 +76,12 @@ export default function ContactPage({ copy }: ContactPageProps) {
           className="absolute inset-0 h-full w-full object-cover object-[50%_30%] transition-transform duration-700 hover:scale-[1.03]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#071C19]/60 via-transparent to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#071C19]/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#071C19]/80 to-transparent" />
+        {c.photoCaption && (
+          <p className="absolute bottom-3 left-4 right-4 text-[11px] text-brand-light/70 leading-snug">
+            {c.photoCaption}
+          </p>
+        )}
       </div>
 
     </section>

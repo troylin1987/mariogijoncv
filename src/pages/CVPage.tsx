@@ -14,6 +14,7 @@ type Experience = {
 type Education = { institution: string; logo: string | null; degree: string; period: string; location: string; };
 type Skill = { name: string; domain: string; };
 type Language = { name: string; level: string; };
+type Certification = { name: string; icon: string } | string;
 
 // ── Language flag map ──
 const FLAG_MAP: Record<string, string> = {
@@ -131,6 +132,140 @@ function SkillIcon({ domain }: { domain: string }) {
       {icons[domain] ?? icons.platform}
     </span>
   );
+}
+
+// ── Tech chip icon map ──
+function TechIcon({ tech }: { tech: string }) {
+  const t = tech.toLowerCase().replace(/[.\s\/]/g, '');
+  const cls = 'h-3 w-3 flex-shrink-0';
+
+  const icons: Record<string, JSX.Element> = {
+    azure:          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M7 3 2 17h5l3-6 4 7 8-15H7z" strokeLinejoin="round"/></svg>,
+    aws:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M5 17c-1.1 0-2-.9-2-2v-1c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v1c0 1.1-.9 2-2 2"/><path d="M12 17v4m-4-1 4 1 4-1M5 12V7a7 7 0 0 1 14 0v5" strokeLinecap="round"/></svg>,
+    ibmcloud:       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M7 18h10a4 4 0 0 0 0-8 5.5 5.5 0 0 0-10.7-1.6A4.2 4.2 0 0 0 7 18Z"/></svg>,
+    genai:          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3" strokeLinecap="round"/></svg>,
+    aiml:           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3" strokeLinecap="round"/></svg>,
+    mcp:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><path d="M7 6h5M12 10V7M17 6h-5M7 18h5M17 18h-5M12 17v-3"/></svg>,
+    rag:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+    ios:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="7" y="2" width="10" height="20" rx="2.5"/><circle cx="12" cy="17.5" r="0.8" fill="currentColor"/><path d="M10 5.5h4" strokeLinecap="round"/></svg>,
+    android:        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M4 16V10a8 8 0 0 1 16 0v6"/><path d="M4 16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H4v1z"/><path d="M3 10h18M9 22v-4m6 4v-4M6.5 5.5l-2-2M17.5 5.5l2-2" strokeLinecap="round"/></svg>,
+    kubernetes:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="12" cy="12" r="9"/><path d="M12 3v9l7.79 4.5M12 12 4.21 7.5" strokeLinecap="round"/></svg>,
+    openshift:      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6" strokeLinecap="round"/></svg>,
+    docker:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M3 13h18a2 2 0 0 1-2 3H5a2 2 0 0 1-2-3v0zM3 9h9M7 9V5h6v4H7zM13 9V5h3"/><circle cx="19" cy="8" r="1" fill="currentColor"/></svg>,
+    nodejs:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M12 2 3 7v5c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/></svg>,
+    vuejs:          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M1 3 12 21 23 3h-5L12 14 6 3H1z" strokeLinejoin="round"/><path d="M7 3l5 9 5-9h-3L12 8 9 3H7z" strokeLinejoin="round"/></svg>,
+    react:          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)"/></svg>,
+    net:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8" strokeLinecap="round"/></svg>,
+    sap:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h2m4 0h3" strokeLinecap="round"/></svg>,
+    sapui5:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h2m4 0h3" strokeLinecap="round"/></svg>,
+    watson:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="12" cy="12" r="9"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4z"/><path d="M12 3v2m0 14v2M3 12h2m14 0h2" strokeLinecap="round"/></svg>,
+    springboot:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2z"/><path d="m9 12 2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    mongodb:        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><ellipse cx="12" cy="5" rx="5" ry="2.5"/><path d="M17 5v14c0 1.38-2.24 2.5-5 2.5S7 20.38 7 19V5"/></svg>,
+    postgresql:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><ellipse cx="12" cy="5" rx="5" ry="2.5"/><path d="M7 5v14c0 1.38 2.24 2.5 5 2.5s5-1.12 5-2.5V5"/><path d="M7 12h10" strokeLinecap="round"/></svg>,
+    jira:           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M11.53 2.03a1 1 0 0 1 .94 0l9 5a1 1 0 0 1 .53.88v10.18a1 1 0 0 1-.53.88l-9 5a1 1 0 0 1-.94 0l-9-5A1 1 0 0 1 2 18.09V7.91a1 1 0 0 1 .53-.88l9-5z"/></svg>,
+    confluence:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+    github:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    security:       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M12 2L4 6v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V6l-8-4z"/></svg>,
+    oauth2:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" strokeLinecap="round"/></svg>,
+    push:           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>,
+    analytics:      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 4-6" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    airflow:        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4" strokeLinecap="round"/><circle cx="12" cy="12" r="4"/></svg>,
+    strapi:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18" strokeLinecap="round"/></svg>,
+    ar:             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>,
+    cloudant:       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" strokeLinecap="round"/></svg>,
+    java:           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M9 3 4 20h16L15 3M9 3h6"/><path d="M8 13h8" strokeLinecap="round"/></svg>,
+    erp:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18" strokeLinecap="round"/></svg>,
+    sql:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>,
+    mdm:            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="7" y="2" width="10" height="20" rx="2.5"/><circle cx="12" cy="17.5" r="0.8" fill="currentColor"/></svg>,
+    odata:          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M18 7V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/><path d="M14 12H3" strokeLinecap="round"/></svg>,
+    rest:           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M18 7V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/><path d="M14 12H3m0 0 3-3m-3 3 3 3" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    swagger:        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8" strokeLinecap="round"/></svg>,
+    nuxtjs:         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M1 20 9 6l4 7 2-3 7 10H1z" strokeLinejoin="round"/></svg>,
+    bedrock:        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m9 9 6 6M15 9l-6 6" strokeLinecap="round"/></svg>,
+    vatsonml:       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>,
+    bootstrap:      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h4a2 2 0 0 1 0 4H8V8h3.5a2 2 0 0 1 0 4" strokeLinecap="round"/></svg>,
+    documentum:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6" strokeLinecap="round"/></svg>,
+    sharepoint:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls}><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2" strokeLinecap="round"/></svg>,
+  };
+
+  const key = t
+    .replace('watson assistant', 'watson')
+    .replace('watsonml', 'watson')
+    .replace('watson ml', 'watson')
+    .replace('ibm cloud', 'ibmcloud')
+    .replace('ibm bluemix', 'ibmcloud')
+    .replace('watson conversation', 'watson')
+    .replace('push notifications', 'push')
+    .replace('mobile strategy', 'mdm')
+    .replace('sap ui5', 'sapui5')
+    .replace('sap fiori', 'sap')
+    .replace('sap kapsel', 'sap')
+    .replace('sap mobile platform', 'sap')
+    .replace('sap netweaver gateway', 'sap')
+    .replace('sap pm', 'sap')
+    .replace('sap ecc', 'sap')
+    .replace('s4hana', 'sap')
+    .replace('.net', 'net')
+    .replace('asp .net', 'net')
+    .replace('vasco sdk', 'security')
+    .replace('otp', 'security')
+    .replace('nuxt.js', 'nuxtjs')
+    .replace('vue.js', 'vuejs')
+    .replace('node.js', 'nodejs')
+    .replace('springboot', 'springboot')
+    .replace('watson ml', 'watson');
+
+  const icon = icons[key] ?? icons[t];
+  if (icon) return <span className="text-brand-light/50">{icon}</span>;
+
+  // Category fallbacks
+  if (t.includes('ios') || t.includes('android') || t.includes('mobile') || t.includes('mobil')) {
+    return <span className="text-brand-light/50">{icons.ios}</span>;
+  }
+  if (t.includes('cloud') || t.includes('aws') || t.includes('azure') || t.includes('ibm')) {
+    return <span className="text-brand-light/50">{icons.ibmcloud}</span>;
+  }
+  if (t.includes('ai') || t.includes('ml') || t.includes('genai') || t.includes('watson')) {
+    return <span className="text-brand-light/50">{icons.genai}</span>;
+  }
+  if (t.includes('api') || t.includes('rest') || t.includes('odata') || t.includes('swagger')) {
+    return <span className="text-brand-light/50">{icons.rest}</span>;
+  }
+  if (t.includes('sap')) {
+    return <span className="text-brand-light/50">{icons.sap}</span>;
+  }
+  if (t.includes('security') || t.includes('segur') || t.includes('sicherheit')) {
+    return <span className="text-brand-light/50">{icons.security}</span>;
+  }
+  if (t.includes('kubernetes') || t.includes('docker') || t.includes('openshift') || t.includes('devops')) {
+    return <span className="text-brand-light/50">{icons.kubernetes}</span>;
+  }
+  if (t.includes('java') || t.includes('spring') || t.includes('node') || t.includes('vue') || t.includes('react')) {
+    return <span className="text-brand-light/50">{icons.nodejs}</span>;
+  }
+  if (t.includes('db') || t.includes('mongo') || t.includes('postgres') || t.includes('sql') || t.includes('database')) {
+    return <span className="text-brand-light/50">{icons.sql}</span>;
+  }
+
+  return null;
+}
+
+// ── Certification icon map ──
+function CertIcon({ icon }: { icon: string }) {
+  const cls = 'h-4 w-4 flex-shrink-0 text-brand-primary';
+  const map: Record<string, JSX.Element> = {
+    ibm:          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" strokeLinecap="round"/><path d="M7 12h10M7 15h6" strokeLinecap="round"/></svg>,
+    design:       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>,
+    security:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M12 2L4 6v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V6l-8-4z"/><path d="m9 12 2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    architecture: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M9 14v3m6-3v3"/></svg>,
+    automation:   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>,
+    transport:    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.27 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 3.18 2 2 0 0 1 4.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>,
+    banking:      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M3 10h18M6 14h.01M10 14h.01M14 14h.01M3 10V20a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V10M12 3 3 10h18L12 3Z" strokeLinejoin="round"/></svg>,
+    android:      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M4 16V10a8 8 0 0 1 16 0v6"/><path d="M4 16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H4v1z"/><path d="M6.5 5.5-2-2M17.5 5.5l2-2" strokeLinecap="round"/></svg>,
+    linux:        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M20 16V7a2 2 0 0 0-2-2H4L2 12v4h2l1 3h4l1-3h6l1 3h2l1-3h2z"/><path d="M7 8h2M15 8h2" strokeLinecap="round"/></svg>,
+    api:          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={cls}><path d="M18 7V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/><path d="M14 12H3m0 0 3-3m-3 3 3 3" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  };
+  return map[icon] ? <span className="flex-shrink-0">{map[icon]}</span> : null;
 }
 
 // ── Company logo with initials fallback ──
@@ -259,7 +394,12 @@ function ExperienceEntry({ exp, index, isFirst }: { exp: Experience; index: numb
                     </div>
                     {proj.technologies.length > 0 && (
                       <div className="flex flex-wrap gap-1.5 pl-11">
-                        {proj.technologies.map(t => <span key={t} className="tag-tech">{t}</span>)}
+                        {proj.technologies.map(t => (
+                          <span key={t} className="tag-tech inline-flex items-center gap-1">
+                            <TechIcon tech={t} />
+                            {t}
+                          </span>
+                        ))}
                       </div>
                     )}
                   </div>
@@ -279,7 +419,7 @@ export default function CVPage({ copy }: CVPageProps) {
   const experiences: Experience[] = c.experience ?? [];
   const education: Education[] = c.education ?? [];
   const skills: Skill[] = c.skills ?? [];
-  const certifications: string[] = c.certifications ?? [];
+  const certifications: Certification[] = c.certifications ?? [];
   const languages: Language[] = c.languages ?? [];
 
   return (
@@ -388,9 +528,16 @@ export default function CVPage({ copy }: CVPageProps) {
       <div className="panel p-6 space-y-4 fade-up stagger-6">
         <p className="section-label">{c.certTitle}</p>
         <div className="flex flex-wrap gap-2">
-          {certifications.map(cert => (
-            <span key={cert} className="tag-tech">{cert}</span>
-          ))}
+          {certifications.map((cert: Certification) => {
+            const name = typeof cert === 'string' ? cert : cert.name;
+            const icon = typeof cert === 'string' ? null : cert.icon;
+            return (
+              <span key={name} className="tag-tech inline-flex items-center gap-1.5">
+                {icon && <CertIcon icon={icon} />}
+                {name}
+              </span>
+            );
+          })}
         </div>
       </div>
 
