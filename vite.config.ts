@@ -17,7 +17,7 @@ export default defineConfig({
             return 'vendor-router';
           }
 
-          if (id.includes('src/content/copy.json') || id.includes('src/data/projectTranslations.generated.json')) {
+          if (id.includes('src/content/copy.json')) {
             return 'content-data';
           }
         }

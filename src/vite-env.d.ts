@@ -2,7 +2,7 @@
 
 interface ImportMetaEnv {
 	readonly VITE_APP_VERSION?: string;
-	readonly VITE_BUILD_UUID?: string;
+	readonly VITE_BUILD_CODENAME?: string;
 	readonly VITE_GA_MEASUREMENT_ID?: string;
 }
 

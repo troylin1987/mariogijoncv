@@ -4,10 +4,8 @@
     <script>
       (function () {
         var host = window.location.hostname;
-        var needsHttps = window.location.protocol !== 'https:';
-        var needsWww = host === 'mariogijon.es';
-
-        if (needsHttps || needsWww) {
+        // Only redirect on production domain, never on localhost/dev
+        if (host === 'mariogijon.es') {
           var target = 'https://www.mariogijon.es' + window.location.pathname + window.location.search + window.location.hash;
           window.location.replace(target);
         }
@@ -46,13 +44,13 @@
     <meta name="twitter:description" content="CV online y portfolio de Mario Gijón, Arquitecto de Soluciones en IBM especializado en arquitectura, mobile, web, cloud e IA." />
     <meta name="twitter:image" content="https://raw.githubusercontent.com/troylin1987/mariogijoncv/main/public/apple-touch-icon.png" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EX2Y83PKE2"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('consent', 'default', { analytics_storage: 'denied' });
-      gtag('config', 'G-EX2Y83PKE2', {
+      gtag('config', '%VITE_GA_MEASUREMENT_ID%', {
         anonymize_ip: true,
         send_page_view: false
       });

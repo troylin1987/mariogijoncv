@@ -9,24 +9,46 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
-      APP_BASE_VERSION: v1.0.0
-      VITE_GA_MEASUREMENT_ID: ${{ vars.VITE_GA_MEASUREMENT_ID }}
+      VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Need full history so we can push the version bump back
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+
       - name: Log deployment trigger time
         run: echo "Deploy trigger at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
       - run: npm ci
-      - run: npm run build
+
+      - name: Build (bumps version in package.json)
+        run: npm run build
+
+      - name: Commit version bump
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          CODENAME=$(grep VITE_BUILD_CODENAME .env.production.local | cut -d= -f2)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git diff --staged --quiet || git commit -m "chore: bump version to v${VERSION} · ${CODENAME} [skip ci]"
+          git push
+
       - name: Upload to InfinityFree FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftpupload.net
+          server: ${{ secrets.FTPHOST }}
           username: ${{ secrets.FTPUSERNAME }}
           password: ${{ secrets.FTPKEY }}
           local-dir: ./dist/
-          server-dir: ./htdocs/
+          server-dir: /htdocs/
           state-name: .ftp-deploy-sync-state.json
+          exclude: |
+            **/.git*
+            **/.git*/**

@@ -1,128 +1,166 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { mediaPath } from '../lib/paths';
 
-type HomePageProps = {
-  copy: any;
-};
+type HomePageProps = { copy: any };
 
-function GuideIcon({ kind }: { kind?: string }) {
-  const baseClass = 'h-5 w-5';
+// Animated counter hook
+function useCounter(target: string, duration = 1200) {
+  const [display, setDisplay] = useState('0');
+  const ref = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    const num = parseInt(target.replace(/\D/g, ''), 10);
+    if (Number.isNaN(num)) { setDisplay(target); return; }
+    const suffix = target.replace(/[\d]/g, '');
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setDisplay(`${Math.round(ease * num)}${suffix}`);
+      if (progress < 1) ref.current = setTimeout(() => tick(performance.now()), 16);
+    };
+    ref.current = setTimeout(() => tick(performance.now()), 16);
+    return () => { if (ref.current) clearTimeout(ref.current); };
+  }, [target, duration]);
+  return display;
+}
 
-  if (kind === 'cv') {
-    return (
-      <svg viewBox="0 0 24 24" className={baseClass} fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z" />
-        <path d="M14 2v5h5" />
-        <path d="M9 12h6M9 16h6" />
-      </svg>
-    );
-  }
+function StatCard({ value, label, delay }: { value: string; label: string; delay: number }) {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const count = useCounter(visible ? value : '0');
 
-  if (kind === 'professional') {
-    return (
-      <svg viewBox="0 0 24 24" className={baseClass} fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M3 7h18v13H3z" />
-        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-        <path d="M3 12h18" />
-      </svg>
-    );
-  }
-
-  if (kind === 'personal') {
-    return (
-      <svg viewBox="0 0 24 24" className={baseClass} fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.6-7 10-7 10z" />
-      </svg>
-    );
-  }
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const ob = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.5 });
+    ob.observe(el);
+    return () => ob.disconnect();
+  }, []);
 
   return (
-    <svg viewBox="0 0 24 24" className={baseClass} fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M4 6h16v12H4z" />
-      <path d="M4 8l8 6 8-6" />
-    </svg>
+    <div ref={ref} className={`text-center counter-up`} style={{ animationDelay: `${delay}ms` }}>
+      <p className="text-3xl font-mono font-bold text-brand-primary leading-none">{visible ? count : '0'}</p>
+      <p className="text-[11px] uppercase tracking-[0.18em] text-white/40 mt-1.5">{label}</p>
+    </div>
   );
 }
 
 export default function HomePage({ copy }: HomePageProps) {
-  const [photoError, setPhotoError] = useState(false);
-  const sectorChips = copy.home.sectors ?? [];
-  const specialtyChips = copy.home.specialties ?? [];
+  const c = copy.home;
 
   return (
-    <section className="space-y-10">
-      <div className="panel overflow-hidden p-8 lg:p-10">
-        <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr]">
-          <div className="space-y-6">
-            <span className="inline-flex rounded-full border border-brand-orange/40 bg-brand-orange/10 px-4 py-2 text-xs uppercase tracking-[0.24em] text-brand-orange">
-              {copy.home.heroBadge}
-            </span>
-            <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
-              {copy.home.heroTitle}
-            </h1>
-            <p className="max-w-2xl text-lg text-slate-300">{copy.home.heroSubtitle}</p>
+    <section className="space-y-20 md:space-y-28">
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="panel-soft p-5">
-                <p className="text-xs uppercase tracking-[0.2em] text-cyan-400/70">{copy.home.heroVisualStatLabel}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {sectorChips.map((item: string) => (
-                    <span key={item} className="rounded-full border border-orange-300/40 bg-orange-500/10 px-3 py-1 text-xs font-medium text-orange-100">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="panel-soft p-5">
-                <p className="text-xs uppercase tracking-[0.2em] text-purple-400/70">{copy.home.heroVisualStat2Label}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {specialtyChips.map((item: string) => (
-                    <span key={item} className="rounded-full border border-amber-300/40 bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-100">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+      {/* ── HERO ── */}
+      <div className="relative grid gap-10 lg:grid-cols-[1fr_400px] lg:gap-16 lg:items-center min-h-[calc(100svh-7rem)]">
+
+        {/* Left column */}
+        <div className="space-y-8">
+
+          {/* Badge */}
+          <div className="fade-up">
+            <span className="tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-3 w-3">
+                <circle cx="12" cy="12" r="9" /><path d="m9 12 2 2 4-4" strokeLinecap="round"/>
+              </svg>
+              {c.badge}
+            </span>
           </div>
 
-          <div className="media-frame min-h-[420px] overflow-hidden rounded-2xl border border-dashed border-white/30 bg-white/5 relative">
+          {/* Name */}
+          <div className="fade-up stagger-1 space-y-2">
+            <h1 className="text-[clamp(3rem,8vw,6rem)] font-mono font-bold text-white leading-[0.95] tracking-tight">
+              {c.title}
+            </h1>
+            <p className="shimmer-text text-xl font-mono font-bold tracking-tight">
+              {c.subtitle}
+            </p>
+          </div>
+
+          {/* Description */}
+          <p className="fade-up stagger-2 max-w-lg text-[15px] leading-[1.75] text-white/55">
+            {c.description}
+          </p>
+
+          {/* CTAs */}
+          <div className="fade-up stagger-3 flex flex-wrap items-center gap-3">
+            <Link to="/cv" className="cta-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4">
+                <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z" strokeLinejoin="round"/>
+                <path d="M14 2v5h5M9 12h6M9 16h6" strokeLinecap="round"/>
+              </svg>
+              {c.ctaPrimary}
+            </Link>
+            <Link to="/contact" className="cta-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" strokeLinejoin="round"/>
+                <rect width="4" height="12" x="2" y="9" rx="1"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+              {c.ctaSecondary}
+            </Link>
+          </div>
+
+          {/* Stats row */}
+          <div className="fade-up stagger-4 flex items-center gap-8 pt-5 border-t border-white/[0.07]">
+            <StatCard value={c.stat1Value} label={c.stat1Label} delay={400} />
+            <div className="w-px h-10 bg-white/[0.08]" />
+            <StatCard value={c.stat2Value} label={c.stat2Label} delay={500} />
+            <div className="w-px h-10 bg-white/[0.08]" />
+            <StatCard value={c.stat3Value} label={c.stat3Label} delay={600} />
+          </div>
+        </div>
+
+        {/* Photo */}
+        <div className="fade-up stagger-2 order-first lg:order-last">
+          <div
+            className="media-frame mx-auto lg:mx-0 aspect-[3/4] max-w-[300px] lg:max-w-none"
+            style={{ boxShadow: '0 40px 80px rgba(0,0,0,0.6), 0 0 60px rgba(31,191,173,0.08)' }}
+          >
             <img
               src={mediaPath('/media/personal/mario-photo.jpg')}
-              alt={copy.home.photoSlotAlt}
-              className="h-full w-full object-cover"
-              onError={() => setPhotoError(true)}
+              alt={c.photoAlt}
+              fetchPriority="high"
+              className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 hover:scale-[1.03]"
             />
-            {photoError ? (
-              <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-white/70">
-                {copy.home.photoSlotLabel}
-              </div>
-            ) : null}
+            {/* Gradient overlay bottom */}
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#071C19] to-transparent" />
+            {/* Glow ring */}
+            <div
+              className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-500"
+              style={{ boxShadow: 'inset 0 0 0 1px rgba(31,191,173,0.35)' }}
+            />
           </div>
         </div>
       </div>
 
-      <div className="panel p-7 lg:p-8">
-        <h2 className="text-3xl font-semibold text-white">{copy.home.findHereTitle}</h2>
+      {/* ── EXPERTISE GRID ── */}
+      <div className="fade-up stagger-5 space-y-5">
+        <p className="section-label">{c.specialtiesLabel}</p>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {(c.specialties ?? []).map((s: string, i: number) => (
+            <div
+              key={s}
+              className={`panel-soft card-lift glow-border px-4 py-3 flex items-center gap-2.5 stagger-${i + 1}`}
+              style={{ animationDelay: `${i * 70}ms` }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-primary flex-shrink-0" />
+              <span className="text-[13px] font-medium text-white/75">{s}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {copy.home.guideCards.map((card: any, index: number) => (
-          <div key={card.title} className={`panel flex h-full flex-col p-6 lg:p-7 fade-up stagger-${index + 1}`}>
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/30 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-sm font-semibold text-cyan-300">
-              <GuideIcon kind={card.icon} />
-            </div>
-            <div className="mt-5 flex flex-1 flex-col">
-              <h3 className="min-h-[3.5rem] text-2xl font-semibold text-white">{card.title}</h3>
-              <p className="mt-3 flex-1 text-white/70">{card.description}</p>
-              <Link to={card.link} className="cta-primary mt-6 self-start">
-                {card.action}
-              </Link>
-            </div>
-          </div>
-        ))}
+      {/* ── SECTORS ── */}
+      <div className="fade-up stagger-6 space-y-4">
+        <p className="section-label">{c.sectorsLabel}</p>
+        <div className="flex flex-wrap gap-2">
+          {(c.sectors ?? []).map((s: string) => (
+            <span key={s} className="tag-tech">{s}</span>
+          ))}
+        </div>
       </div>
+
     </section>
   );
 }

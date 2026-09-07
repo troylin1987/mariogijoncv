@@ -2,7 +2,7 @@ export const COOKIE_CONSENT_KEY = 'mariogijon-cookie-consent-v1';
 
 type ConsentValue = 'accepted' | 'rejected' | null;
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-EX2Y83PKE2';
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID ?? '';
 
 type AnalyticsEventParams = Record<string, string | number | boolean | null | undefined>;
 
